@@ -24,6 +24,25 @@ import fsp from 'node:fs/promises';
 const stateDir = fs.mkdtempSync(path.join(os.homedir(), '.founderos-state-test-'));
 process.env['FOUNDER_OS_STATE_DIR'] = stateDir;
 
+/**
+ * Probe directory-symlink support. Windows CI runners often lack the
+ * privilege, so the symlink-refusal test is skipped there instead of failing.
+ */
+function symlinksSupported(): boolean {
+  const probe = fs.mkdtempSync(path.join(os.tmpdir(), 'fos-symcheck-'));
+  try {
+    fs.symlinkSync(probe, path.join(probe, 'link'), 'dir');
+    return true;
+  } catch {
+    return false;
+  } finally {
+    fs.rmSync(probe, { recursive: true, force: true });
+  }
+}
+const SYMLINK_SKIP = symlinksSupported()
+  ? false
+  : 'directory symlinks are not supported on this platform/runner';
+
 const { installAllSkills } = await import('./index.js');
 const { uninstallSkills } = await import('./uninstall.js');
 const { readManifest } = await import('../utils/manifest.js');
@@ -109,7 +128,7 @@ test('--force backs up the existing folder before overwriting', async () => {
   fs.rmSync(placed!.backupPath!, { recursive: true, force: true });
 });
 
-test('a symlinked skill folder is refused, never followed', async () => {
+test('a symlinked skill folder is refused, never followed', { skip: SYMLINK_SKIP }, async () => {
   const linkName = 'startup-roast';
   const realTarget = fs.mkdtempSync(path.join(os.homedir(), '.founderos-linktarget-'));
   const linkPath = path.join(skillRoot, linkName);

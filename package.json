@@ -34,8 +34,10 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
     "clean": "turbo run clean",
     "verify": "node cli/dist/index.js verify",
+    "audit": "pnpm audit --audit-level=high",
     "format": "prettier --write \"**/*.{ts,js,json,md}\""
   },
   "devDependencies": {

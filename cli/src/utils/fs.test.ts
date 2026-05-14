@@ -23,6 +23,26 @@ import {
   writeJson,
 } from './fs.js';
 
+/**
+ * Probe whether this platform/runner can create directory symlinks.
+ * Windows CI runners often cannot (it needs a privilege / developer mode),
+ * so symlink-dependent tests are skipped there rather than failing.
+ */
+function symlinksSupported(): boolean {
+  const probe = fs.mkdtempSync(path.join(os.tmpdir(), 'fos-symcheck-'));
+  try {
+    fs.symlinkSync(probe, path.join(probe, 'link'), 'dir');
+    return true;
+  } catch {
+    return false;
+  } finally {
+    fs.rmSync(probe, { recursive: true, force: true });
+  }
+}
+const SYMLINK_SKIP = symlinksSupported()
+  ? false
+  : 'directory symlinks are not supported on this platform/runner';
+
 let workdir: string;
 
 before(() => {
@@ -71,7 +91,7 @@ test('backupDir returns null when there is nothing to back up', async () => {
   assert.equal(await backupDir(missing), null);
 });
 
-test('isSymlink distinguishes links from real directories', async () => {
+test('isSymlink distinguishes links from real directories', { skip: SYMLINK_SKIP }, async () => {
   const realDir = path.join(workdir, 'real');
   await ensureDir(realDir);
   const link = path.join(workdir, 'link');
