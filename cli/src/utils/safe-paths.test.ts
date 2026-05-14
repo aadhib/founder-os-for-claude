@@ -20,6 +20,25 @@ import {
 
 const HOME = os.homedir();
 
+/**
+ * Probe directory-symlink support. Windows CI runners often lack the
+ * privilege, so the symlink-escape test is skipped there instead of failing.
+ */
+function symlinksSupported(): boolean {
+  const probe = fs.mkdtempSync(path.join(os.tmpdir(), 'fos-symcheck-'));
+  try {
+    fs.symlinkSync(probe, path.join(probe, 'link'), 'dir');
+    return true;
+  } catch {
+    return false;
+  } finally {
+    fs.rmSync(probe, { recursive: true, force: true });
+  }
+}
+const SYMLINK_SKIP = symlinksSupported()
+  ? false
+  : 'directory symlinks are not supported on this platform/runner';
+
 test('rejects the filesystem root', () => {
   const root = process.platform === 'win32' ? 'C:\\' : '/';
   assert.throws(() => assertSafeInstallPath(root), UnsafePathError);
@@ -74,7 +93,7 @@ test('rejects a project path when allowCwd is NOT given', () => {
   }
 });
 
-test('detects a symlinked parent that escapes the allowed area', () => {
+test('detects a symlinked parent that escapes the allowed area', { skip: SYMLINK_SKIP }, () => {
   // Build: <home>/.founderos-symlink-test/link -> <tmpdir>/escape
   const base = fs.mkdtempSync(path.join(HOME, '.founderos-symlink-test-'));
   const escapeTarget = fs.mkdtempSync(path.join(os.tmpdir(), 'founder-os-escape-'));

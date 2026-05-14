@@ -20,17 +20,18 @@ jobs:
   verify:
     name: verify release is shippable
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
 
+      # pnpm version comes from the `packageManager` field — no `version:` input
+      # (pnpm/action-setup@v4 errors if both are set).
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 8
+        uses: pnpm/action-setup@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
@@ -42,7 +43,7 @@ jobs:
         run: pnpm build
 
       - name: Typecheck
-        run: pnpm lint
+        run: pnpm typecheck
 
       - name: Test
         run: pnpm test
@@ -67,6 +68,7 @@ jobs:
     name: publish to npm (with provenance)
     needs: verify
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment: release
     permissions:
       contents: read
@@ -75,15 +77,13 @@ jobs:
       id-token: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
-        with:
-          version: 8
+        uses: pnpm/action-setup@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v4.1.0
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
@@ -106,15 +106,16 @@ jobs:
     name: create GitHub release
     needs: publish-npm
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       # Only this job can write — and only to create the Release entry.
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2.2.1
+        uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           body_path: CHANGELOG.md
