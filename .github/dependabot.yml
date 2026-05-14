@@ -1,0 +1,33 @@
+version: 2
+updates:
+  # Root dev-tooling (turbo, prettier, typescript)
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      dev-dependencies:
+        dependency-type: development
+    open-pull-requests-limit: 5
+    labels: [dependencies]
+    commit-message:
+      prefix: chore
+
+  # The published CLI package — keep its small dependency surface current
+  - package-ecosystem: npm
+    directory: "/cli"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    labels: [dependencies]
+    commit-message:
+      prefix: chore
+
+  # GitHub Actions — keeps the pinned action versions patched
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels: [dependencies, ci]
+    commit-message:
+      prefix: ci

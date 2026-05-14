@@ -1,0 +1,46 @@
+{
+  "name": "founder-os-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The AI operating system for founders, CTOs, and product builders.",
+  "license": "MIT",
+  "homepage": "https://founderos.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aadhib/founder-os-for-claude.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aadhib/founder-os-for-claude/issues"
+  },
+  "keywords": [
+    "claude",
+    "claude-skills",
+    "cursor",
+    "ai",
+    "founder",
+    "startup",
+    "saas",
+    "cli",
+    "developer-tools",
+    "ai-workflows"
+  ],
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "verify": "node cli/dist/index.js verify",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.0",
+    "typescript": "^5.4.0"
+  }
+}

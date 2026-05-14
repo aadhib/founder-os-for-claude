@@ -1,0 +1,55 @@
+name: Skill request
+description: Propose a new Founder OS skill
+title: "[skill] "
+labels: [skill-request]
+body:
+  - type: markdown
+    attributes:
+      value: Founder OS skills solve a specific founder/operator problem. Help us understand the problem before the solution.
+
+  - type: input
+    id: name
+    attributes:
+      label: Proposed skill name
+      placeholder: "growth-loops"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What founder problem does it solve?
+      description: Be specific. Who has this problem and when?
+    validations:
+      required: true
+
+  - type: textarea
+    id: ideal-user
+    attributes:
+      label: Ideal user
+      description: Who is this skill calibrated for?
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: What should the output look like?
+      description: Rough shape of the deliverable the skill produces.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options: [strategy, design, growth, engineering]
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I'm willing to author this skill as a PR

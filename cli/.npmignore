@@ -1,0 +1,17 @@
+# The `files` field in package.json is the whitelist (dist + skills).
+# This file further trims the published tarball so it ships ONLY runtime code.
+
+# Tests — never published
+dist/**/*.test.js
+dist/**/*.test.d.ts
+dist/**/*.test.js.map
+
+# Source maps — keep the tarball lean
+dist/**/*.js.map
+
+# Build scripts — only needed by maintainers
+scripts/
+
+# Misc
+.turbo/
+*.tsbuildinfo

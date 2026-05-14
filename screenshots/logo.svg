@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#0a0a0b"/>
+  <rect x="0.5" y="0.5" width="119" height="119" rx="27.5" stroke="url(#g)" stroke-opacity="0.4"/>
+  <!-- F monogram -->
+  <path d="M40 34h44v12H54v14h26v12H54v22H40V34z" fill="url(#g)"/>
+  <!-- orbiting dot -->
+  <circle cx="86" cy="80" r="7" fill="#bef264"/>
+</svg>

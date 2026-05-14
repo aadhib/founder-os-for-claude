@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discord community
+    url: https://discord.gg/founder-os
+    about: Questions, help, and general discussion.
+  - name: GitHub Discussions
+    url: https://github.com/aadhib/founder-os-for-claude/discussions
+    about: Ideas, show-and-tell, and Q&A.
+  - name: Security vulnerability
+    url: https://github.com/aadhib/founder-os-for-claude/security/policy
+    about: Please report security issues privately — see SECURITY.md.
