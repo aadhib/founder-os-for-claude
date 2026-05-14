@@ -1,7 +1,7 @@
 /**
  * Founder OS — interactive setup wizard
  *
- * Runs when `founder-os install` is invoked without `--yes` / `--from-bootstrap`.
+ * Runs when `founderos install` is invoked without `--yes` / `--from-bootstrap`.
  * Walks the user through tool selection and skill selection, then delegates to
  * the same installer the bootstrap pipeline uses.
  */
@@ -22,7 +22,7 @@ export async function runSetupWizard(): Promise<WizardResult> {
   logger.banner();
   logger.intro(
     "Let's get Founder OS wired into your workflow. A few quick questions —",
-    'you can change everything later with `founder-os add` / `remove`.',
+    'you can change everything later with `founderos add` / `remove`.',
   );
 
   // ── 1. tools ────────────────────────────────────────────────────────────
@@ -106,7 +106,7 @@ export async function runSetupWizard(): Promise<WizardResult> {
     `Tools:  ${tools.join(', ')}`,
     `Skills: ${report.placed} installed, ${report.skipped} already present`,
   ]);
-  logger.outro('Run `founder-os doctor` to verify, then try `/founder-mode` in your tool.');
+  logger.outro('Run `founderos doctor` to verify, then try `/founder-mode` in your tool.');
 
   return { tools, skills, installed: report.placed };
 }

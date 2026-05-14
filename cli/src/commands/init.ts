@@ -1,5 +1,5 @@
 /**
- * `founder-os init`
+ * `founderos init`
  *
  * Scaffolds Founder OS into the *current project* rather than the user's home
  * directory — useful for teams who want skills committed alongside the repo.

@@ -19,4 +19,4 @@ fs.rmSync(out, { recursive: true, force: true });
 fs.cpSync(src, out, { recursive: true });
 
 const files = fs.readdirSync(out);
-console.log(`founder-os website: built ${files.length} file(s) → dist/`);
+console.log(`founderos website: built ${files.length} file(s) → dist/`);

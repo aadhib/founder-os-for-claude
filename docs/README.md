@@ -25,4 +25,4 @@ Everything you need to install, use, extend, and contribute to Founder OS.
 
 ---
 
-New here? Start with [Installation](installation.md), then run `founder-os doctor`.
+New here? Start with [Installation](installation.md), then run `founderos doctor`.

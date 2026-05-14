@@ -1,7 +1,7 @@
 /**
  * Founder OS — security checks
  *
- * Powers `founder-os doctor --security` and `founder-os verify --security`.
+ * Powers `founderos doctor --security` and `founderos verify --security`.
  * These checks answer one question: "could anything Founder OS installed, or
  * is about to install, do something it shouldn't?"
  *

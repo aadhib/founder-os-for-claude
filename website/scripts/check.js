@@ -33,4 +33,4 @@ if (!failed) {
 }
 
 if (failed) process.exit(1);
-console.log('✓ founder-os website: checks passed');
+console.log('✓ founderos website: checks passed');

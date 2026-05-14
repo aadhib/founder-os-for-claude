@@ -7,14 +7,14 @@ if something matters to you.
 ## ✅ v1.0 — Launch (shipped 2026-05-14)
 
 - One-command cross-platform installer
-- `founder-os` CLI (10 commands)
+- `founderos` CLI (10 commands)
 - 8 enterprise-grade skills
 - Claude Code, Cursor, Codex CLI, Gemini CLI integration
 - Real example library + full docs
 
 ## 🔜 v1.1 — Polish & Reach
 
-- `founder-os update` delta-aware skill upgrades
+- `founderos update` delta-aware skill upgrades
 - Per-project skill configs (`.founderos.json`)
 - Skill version pinning
 - Telemetry-free usage analytics (opt-in, local only)
@@ -22,13 +22,13 @@ if something matters to you.
 
 ## 🛠️ v1.2 — Studio
 
-- `founder-os studio` — local web UI to browse, preview, and configure skills
+- `founderos studio` — local web UI to browse, preview, and configure skills
 - Visual diff for `fix-my-ui` before/after
 - Example gallery with one-click copy
 
 ## 🌐 v2.0 — Registry
 
-- Community skill registry (`founder-os add @user/skill`)
+- Community skill registry (`founderos add @user/skill`)
 - Skill ratings, verification badges, and changelogs
 - Team workspaces with shared skill configs
 - Org-level skill governance

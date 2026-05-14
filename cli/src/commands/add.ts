@@ -1,5 +1,5 @@
 /**
- * `founder-os add <skill>`
+ * `founderos add <skill>`
  *
  * Installs a single skill across all detected tools (or a subset via --tool).
  * Supports --dry-run and --verbose; --force creates a backup before overwriting.
@@ -21,7 +21,7 @@ export async function addCommand(skillId: string, args: AddArgs): Promise<void> 
   const skill = await getSkill(skillId);
   if (!skill) {
     logger.error(`Unknown skill: ${skillId}`);
-    logger.info('Run `founder-os list` to see available skills.');
+    logger.info('Run `founderos list` to see available skills.');
     process.exitCode = 1;
     return;
   }

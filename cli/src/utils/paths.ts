@@ -65,7 +65,7 @@ export function toolSkillDir(toolId: string): string {
   }
 }
 
-/** Project-local install dir, used by `founder-os init`. */
+/** Project-local install dir, used by `founderos init`. */
 export function projectSkillDir(cwd: string, toolId: string): string {
   switch (toolId) {
     case 'claude-code':

@@ -3,7 +3,7 @@
 Common issues and how to fix them. Start every diagnosis with:
 
 ```bash
-founder-os doctor
+founderos doctor
 ```
 
 It reports environment health, detected tools, the install manifest, and drift.
@@ -27,14 +27,14 @@ Corporate networks sometimes block piped shell installs. Use the package-manager
 path instead:
 
 ```bash
-npx founder-os install
+npx founderos install
 ```
 
 ### Permission denied writing skills
 
 The installer writes to `~/.claude/skills/` (and equivalents). If your home
 directory or a tool config dir is read-only, fix the permissions or run
-`founder-os doctor` to see exactly which path failed.
+`founderos doctor` to see exactly which path failed.
 
 ---
 
@@ -46,7 +46,7 @@ Founder OS looks for a tool's binary on `PATH` or its config directory in your
 home folder. If you have the tool but it isn't detected:
 
 - Confirm the binary is on `PATH`: `which claude` / `which cursor`.
-- Or install directly to that tool: `founder-os add <skill> --tool cursor`.
+- Or install directly to that tool: `founderos add <skill> --tool cursor`.
 - Skills are still placed in default locations even when nothing is detected.
 
 ### Tool detected but skills don't trigger
@@ -64,13 +64,13 @@ home folder. If you have the tool but it isn't detected:
 Skill files were deleted or moved out of band. Re-place them:
 
 ```bash
-founder-os install --force
+founderos install --force
 ```
 
 ### Skills look out of date
 
 ```bash
-founder-os update
+founderos update
 ```
 
 Re-syncs installed skills with the latest bundled catalog.
@@ -80,12 +80,12 @@ Re-syncs installed skills with the latest bundled catalog.
 The safe way — removes only what Founder OS installed, then reinstalls clean:
 
 ```bash
-founder-os uninstall --yes 2>/dev/null || founder-os uninstall
-founder-os install --yes
+founderos uninstall --yes 2>/dev/null || founderos uninstall
+founderos install --yes
 ```
 
 `~/.founderos/manifest.json` is just a record — deleting it is safe; the next
-install rebuilds it. `founder-os uninstall` is preferred over `rm -rf` because
+install rebuilds it. `founderos uninstall` is preferred over `rm -rf` because
 it re-validates every path before deleting and never touches anything outside
 the manifest.
 
@@ -98,15 +98,15 @@ the manifest.
 Run it for the detail:
 
 ```bash
-founder-os doctor --security
+founderos doctor --security
 ```
 
 Common findings:
 - **"installed skill is a symlink"** — a skill folder was replaced with a
   symlink out of band. Founder OS never installs symlinks. Remove it and
-  re-run `founder-os install --force`.
+  re-run `founderos install --force`.
 - **"manifest entry points outside the allowed write area"** — the manifest was
-  edited or moved. Reset it: `founder-os uninstall` then `founder-os install`.
+  edited or moved. Reset it: `founderos uninstall` then `founderos install`.
 
 ### The `curl | bash` installer refused to run
 
@@ -121,7 +121,7 @@ curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/i
 
 ## Verification issues
 
-### `founder-os verify` fails after editing a skill
+### `founderos verify` fails after editing a skill
 
 The skill is missing a required frontmatter key or section. The output names
 exactly what's missing. See [Authoring Skills](authoring-skills.md) for the
@@ -134,4 +134,4 @@ full contract.
 - Search [GitHub Issues](https://github.com/aadhib/founder-os-for-claude/issues).
 - Ask in [Discussions](https://github.com/aadhib/founder-os-for-claude/discussions)
   or [Discord](https://discord.gg/founder-os).
-- Open a bug report with the output of `founder-os doctor` attached.
+- Open a bug report with the output of `founderos doctor` attached.

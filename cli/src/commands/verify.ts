@@ -1,5 +1,5 @@
 /**
- * `founder-os verify`
+ * `founderos verify`
  *
  * Validates every bundled skill against the structural contract (required
  * frontmatter keys + required SKILL.md sections). With `--security`, also runs

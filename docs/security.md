@@ -22,7 +22,7 @@ an install hook, and shows you exactly what it will do before it does it.
 | **Backups before overwrite** | `--force` copies the existing folder to `<dir>.founderos-backup-<timestamp>` before replacing it. |
 | **Safe skill ids** | A skill id is validated as kebab-case with no path separators before it is ever used as a path segment. |
 | **Manifest re-validation** | `remove` / `uninstall` re-validate every manifest path before deleting — a tampered manifest can't redirect a delete. |
-| **No install-time code** | The npm package has no `postinstall` / `preinstall`. The only executable is the `founder-os` bin. |
+| **No install-time code** | The npm package has no `postinstall` / `preinstall`. The only executable is the `founderos` bin. |
 
 ## Verify it yourself
 
@@ -33,7 +33,7 @@ an install hook, and shows you exactly what it will do before it does it.
 curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 
 # Or skip shells entirely and preview every change
-npx founder-os install --dry-run
+npx founderos install --dry-run
 ```
 
 `--dry-run` prints every directory that would be created or overwritten and
@@ -42,7 +42,7 @@ writes nothing.
 ### After installing
 
 ```bash
-founder-os doctor --security
+founderos doctor --security
 ```
 
 Runs the security audit:
@@ -53,7 +53,7 @@ Runs the security audit:
 - bundled skills are plain documentation (no executables, no binary content, no symlinks)
 
 ```bash
-founder-os verify --security
+founderos verify --security
 ```
 
 Runs the catalog audit on the bundled skills specifically — useful in CI and
@@ -62,9 +62,9 @@ before publishing.
 ## Uninstalling safely
 
 ```bash
-founder-os uninstall --dry-run     # see what would be removed
-founder-os uninstall               # remove everything the CLI installed
-founder-os uninstall --restore     # remove, then restore pre-install backups
+founderos uninstall --dry-run     # see what would be removed
+founderos uninstall               # remove everything the CLI installed
+founderos uninstall --restore     # remove, then restore pre-install backups
 ```
 
 `uninstall` only touches paths recorded in `~/.founderos/manifest.json`, and
@@ -72,7 +72,7 @@ re-validates each one before deleting.
 
 ## Supply chain
 
-- **npm provenance** — the `founder-os` package is published with a signed
+- **npm provenance** — the `founderos` package is published with a signed
   provenance attestation tying the tarball to this repo's release workflow.
 - **Reproducible** — `dist/` is a plain `tsc` compile; `skills/` is copied
   verbatim. No bundling, no minification, no code generation.

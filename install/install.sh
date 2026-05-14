@@ -8,20 +8,20 @@
 #   1. Refuses to run as root (Founder OS never needs elevation).
 #   2. Checks that Node.js 18+ and a package runner (npx/pnpm/bun) exist.
 #   3. Prints the exact command it is about to run.
-#   4. Runs `<runner> founder-os@latest install --from-bootstrap`.
+#   4. Runs `<runner> founderos@latest install --from-bootstrap`.
 #
 # It downloads NOTHING else, writes NO files itself, and uses NO temp
-# directories. All real work is done by the `founder-os` npm package, whose
+# directories. All real work is done by the `founderos` npm package, whose
 # source is public and auditable. To inspect before running:
 #   curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 #
 # Prefer not to pipe to a shell at all? Use the npm path directly:
-#   npx founder-os@latest install
+#   npx founderos@latest install
 
 set -euo pipefail
 
 readonly REPO="aadhib/founder-os-for-claude"
-readonly PKG="founder-os@latest"
+readonly PKG="founderos@latest"
 
 # ── styling ───────────────────────────────────────────────────────────────
 if [ -t 1 ]; then
@@ -137,10 +137,10 @@ main() {
   echo
   ok "${BOLD}Founder OS is installed.${RESET}"
   say "  Next:"
-  say "    ${PURPLE}founder-os doctor${RESET}            — verify your setup"
-  say "    ${PURPLE}founder-os doctor --security${RESET} — run the security audit"
-  say "    ${PURPLE}founder-os list${RESET}              — see installed skills"
-  say "    ${PURPLE}founder-os uninstall${RESET}         — cleanly remove everything"
+  say "    ${PURPLE}founderos doctor${RESET}            — verify your setup"
+  say "    ${PURPLE}founderos doctor --security${RESET} — run the security audit"
+  say "    ${PURPLE}founderos list${RESET}              — see installed skills"
+  say "    ${PURPLE}founderos uninstall${RESET}         — cleanly remove everything"
   echo
   say "  Docs: ${PURPLE}https://github.com/${REPO}#readme${RESET}"
   echo

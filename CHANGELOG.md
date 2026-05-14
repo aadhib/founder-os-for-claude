@@ -6,12 +6,18 @@ All notable changes to Founder OS are documented here. Format based on
 
 ## [Unreleased]
 
+### Changed
+- **Renamed the npm package and CLI binary `founder-os` → `founderos`.** The
+  unscoped name `founder-os` was already taken on npm by an unrelated project,
+  so `npx founder-os install` would have run the wrong package. Install with
+  `npx founderos install`; the command is `founderos`.
+
 ### Added
-- `founder-os uninstall` — clean removal via the manifest, with `--dry-run`,
+- `founderos uninstall` — clean removal via the manifest, with `--dry-run`,
   `--restore`, `--skill`, and `--tool` scoping.
-- `founder-os install --dry-run` / `--verbose` — preview every change, write nothing.
-- `founder-os doctor --security` — path-safety, symlink, and manifest-integrity audit.
-- `founder-os verify --security` — confirms the bundled catalog is plain documentation.
+- `founderos install --dry-run` / `--verbose` — preview every change, write nothing.
+- `founderos doctor --security` — path-safety, symlink, and manifest-integrity audit.
+- `founderos verify --security` — confirms the bundled catalog is plain documentation.
 - Automatic backups: `--force` copies an existing skill folder to
   `<dir>.founderos-backup-<timestamp>` before overwriting it.
 
@@ -28,14 +34,14 @@ All notable changes to Founder OS are documented here. Format based on
 - npm package: no install hooks, `exports` map, trimmed published tarball.
 
 ### Planned
-- `founder-os studio` local web UI
+- `founderos studio` local web UI
 - Community skill registry
 
 ## [1.0.0] — 2026-05-14
 
 ### Added
 - One-command installer for npm, pnpm, bun, curl, and PowerShell.
-- `founder-os` CLI with commands: `install`, `doctor`, `list`, `update`,
+- `founderos` CLI with commands: `install`, `doctor`, `list`, `update`,
   `init`, `add`, `remove`, `verify`, `examples`, `integrations`.
 - Environment detection for Claude Code, Cursor, Codex CLI, and Gemini CLI.
 - Cross-platform support: macOS, Linux, Windows.

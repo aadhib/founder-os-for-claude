@@ -2,12 +2,12 @@
  * Founder OS — bootstrap entrypoint
  *
  * A thin standalone wrapper around the real bootstrap pipeline, which lives in
- * the CLI package (`cli/src/bootstrap.ts`) so it ships compiled with `founder-os`.
+ * the CLI package (`cli/src/bootstrap.ts`) so it ships compiled with `founderos`.
  *
  * The shell installers do NOT run this file directly — they call
- * `founder-os install --from-bootstrap`. This entrypoint exists for local use:
+ * `founderos install --from-bootstrap`. This entrypoint exists for local use:
  *
- *   pnpm --filter founder-os build      # build the CLI first
+ *   pnpm --filter founderos build      # build the CLI first
  *   pnpm tsx install/bootstrap.ts       # then run the pipeline directly
  *
  * Keeping the logic in the CLI package means there is one source of truth and

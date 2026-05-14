@@ -1,5 +1,5 @@
 /**
- * `founder-os install`
+ * `founderos install`
  *
  * Modes:
  *   --from-bootstrap / --yes  → non-interactive, install everything everywhere
@@ -115,11 +115,11 @@ export async function installCommand(args: InstallArgs): Promise<void> {
 
   logger.raw('\n  Next steps:');
   logger.list([
-    'founder-os doctor            — verify your setup',
-    'founder-os doctor --security — run the security audit',
-    'founder-os list              — see installed skills',
-    'founder-os examples          — browse real outputs',
-    'founder-os uninstall         — cleanly remove everything',
+    'founderos doctor            — verify your setup',
+    'founderos doctor --security — run the security audit',
+    'founderos list              — see installed skills',
+    'founderos examples          — browse real outputs',
+    'founderos uninstall         — cleanly remove everything',
   ]);
   logger.raw();
 }

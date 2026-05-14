@@ -1,5 +1,5 @@
 /**
- * `founder-os integrations`
+ * `founderos integrations`
  *
  * Prints the supported AI tools, whether each is detected, where skills get
  * placed, and the integration note for each.

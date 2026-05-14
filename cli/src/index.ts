@@ -25,7 +25,7 @@ const VERSION = '1.0.0';
 const program = new Command();
 
 program
-  .name('founder-os')
+  .name('founderos')
   .description('The AI operating system for founders, CTOs, and product builders.')
   .version(VERSION, '-v, --version', 'print the Founder OS version');
 

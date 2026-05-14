@@ -51,7 +51,7 @@ directories, and records a manifest. The security-relevant surfaces are:
 | **Filesystem writes** (installers, `init`, `remove`, `uninstall`) | path traversal, arbitrary overwrite, symlink escape | every write routed through `assertSafeInstallPath` — see below |
 | **Skill ids used as path segments** | a crafted catalog entry could traverse | `assertSafeSkillId` enforces kebab-case, no separators, no `..` |
 | **The manifest** (`~/.founderos/manifest.json`) | a tampered manifest could point `remove`/`uninstall` at any path | every manifest path is **re-validated** before deletion |
-| **`curl | bash` install path** | classic untrusted-pipe risk | the script is short, auditable, downloads nothing else, and the npm path (`npx founder-os install`) avoids piping entirely |
+| **`curl | bash` install path** | classic untrusted-pipe risk | the script is short, auditable, downloads nothing else, and the npm path (`npx founderos install`) avoids piping entirely |
 | **Dependency chain** | a compromised dependency | minimal, pinned dependencies; `pnpm audit` gate in CI; Dependabot; no `postinstall` |
 | **Release pipeline** | a malicious publish | publish only on maintainer-pushed tags; least-privilege workflow tokens; npm provenance |
 
@@ -64,7 +64,7 @@ guarantees a target directory:
 2. is **not** a filesystem root or a known system directory (`/`, `/etc`,
    `/usr`, `C:\`, `C:\Windows`, `C:\Program Files`, …),
 3. is **not** the bare home directory itself,
-4. is **inside** the user's home directory (or, for `founder-os init`, inside
+4. is **inside** the user's home directory (or, for `founderos init`, inside
    the current project directory) — nothing else is writable,
 5. does not escape the allowed area through a **symlinked parent** — the
    deepest existing ancestor's real path is resolved and re-checked.
@@ -85,13 +85,13 @@ A symlinked skill folder is never followed or overwritten — `remove` /
 
 ### npm package provenance
 
-The `founder-os` package is published with **[npm provenance](https://docs.npmjs.com/generating-provenance-statements)**.
+The `founderos` package is published with **[npm provenance](https://docs.npmjs.com/generating-provenance-statements)**.
 npm cryptographically attests that the published tarball was built by this
 repository's `release.yml` workflow, from this source, at the tagged commit.
 Verify it on the package page (the "Provenance" section) or with:
 
 ```bash
-npm view founder-os --json | grep -A5 provenance
+npm view founderos --json | grep -A5 provenance
 ```
 
 ### Reproducible builds
@@ -106,7 +106,7 @@ To reproduce locally:
 ```bash
 git clone https://github.com/aadhib/founder-os-for-claude
 cd founder-os-for-claude && pnpm install --frozen-lockfile
-pnpm --filter founder-os build
+pnpm --filter founderos build
 node cli/scripts/bundle-skills.cjs
 # cli/dist + cli/skills now match the published package contents
 ```
@@ -123,7 +123,7 @@ comments say. Always read them first:
 curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 ```
 
-Or skip shells entirely: `npx founder-os install --dry-run`.
+Or skip shells entirely: `npx founderos install --dry-run`.
 
 ## Dependency policy
 
@@ -140,18 +140,18 @@ Or skip shells entirely: `npx founder-os install --dry-run`.
 
 ## Hardening recommendations for users
 
-- Prefer `npx founder-os install` over `curl | bash`.
-- Run `founder-os install --dry-run` first to preview every change.
-- Run `founder-os doctor --security` after installing.
-- Review which directories were written — `founder-os doctor` prints them.
+- Prefer `npx founderos install` over `curl | bash`.
+- Run `founderos install --dry-run` first to preview every change.
+- Run `founderos doctor --security` after installing.
+- Review which directories were written — `founderos doctor` prints them.
 - Skills are plain Markdown — read them before enabling. They contain no
   executable code, but they do shape model behavior.
 
 ## Security checklist for maintainers (pre-release)
 
 - [ ] `pnpm audit --audit-level=high` is clean
-- [ ] `founder-os verify --security` passes
-- [ ] `founder-os doctor --security` passes on a clean machine
+- [ ] `founderos verify --security` passes
+- [ ] `founderos doctor --security` passes on a clean machine
 - [ ] CI is green on all three OSes and all supported Node versions
 - [ ] No new runtime dependency added without justification
 - [ ] Workflow permissions are still least-privilege

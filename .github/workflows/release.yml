@@ -95,10 +95,10 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Publish founder-os with provenance
+      - name: Publish founderos with provenance
         # `prepack` bundles skills + rebuilds; publishConfig.provenance enables
         # the signed provenance attestation (requires id-token: write above).
-        run: pnpm --filter founder-os publish --no-git-checks --access public --provenance
+        run: pnpm --filter founderos publish --no-git-checks --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

@@ -1,5 +1,5 @@
 /**
- * `founder-os remove <skill>`
+ * `founderos remove <skill>`
  *
  * Removes a skill folder from every tool it was installed into (or a subset
  * via --tool) and updates the manifest.

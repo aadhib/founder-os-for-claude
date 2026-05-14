@@ -53,7 +53,7 @@ The body must contain all 13 sections, as `##` or `###` headings:
 | **Best Practices** | How to get the most out of the skill. |
 | **Integration Compatibility** | Per-tool support notes. |
 
-`founder-os verify` enforces both contracts. CI runs it on every PR.
+`founderos verify` enforces both contracts. CI runs it on every PR.
 
 ## Quality bar
 
@@ -74,15 +74,15 @@ The CLI ships a stub template ([`cli/src/templates/index.ts`](../cli/src/templat
 `renderSkillStub`). Create the folder and `SKILL.md`, fill in every section, then:
 
 ```bash
-pnpm --filter founder-os build
+pnpm --filter founderos build
 node cli/dist/index.js verify     # must pass
 ```
 
 ## Testing your skill
 
 ```bash
-founder-os verify                 # structural check
-founder-os add your-skill         # install it locally
+founderos verify                 # structural check
+founderos add your-skill         # install it locally
 # then trigger /your-skill in Claude Code and iterate
 ```
 

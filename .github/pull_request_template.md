@@ -18,7 +18,7 @@
 - [ ] `pnpm build` passes
 - [ ] `pnpm test` passes
 - [ ] `pnpm lint` passes
-- [ ] `founder-os verify` passes (if skills changed)
+- [ ] `founderos verify` passes (if skills changed)
 - [ ] Docs updated (if behavior changed)
 - [ ] `CHANGELOG.md` updated under `[Unreleased]`
 

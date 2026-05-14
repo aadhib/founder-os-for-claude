@@ -1,6 +1,6 @@
 # `install/` — bootstrap layer
 
-These files are the thin shell around the `founder-os` CLI. They exist so the
+These files are the thin shell around the `founderos` CLI. They exist so the
 `curl | bash` and `irm | iex` install paths work even before anything is on the
 user's machine.
 
@@ -15,7 +15,7 @@ user's machine.
 ## How the handoff works
 
 ```
-curl|bash  ──►  install.sh  ──►  npx founder-os install --from-bootstrap
+curl|bash  ──►  install.sh  ──►  npx founderos install --from-bootstrap
                                         │
                                         ▼
                                   cli/src/bootstrap.ts
@@ -25,9 +25,9 @@ curl|bash  ──►  install.sh  ──►  npx founder-os install --from-boots
 ```
 
 The shell scripts deliberately contain **no skill logic** — they only ensure a
-Node runtime exists and then defer to the `founder-os` CLI. The real bootstrap
+Node runtime exists and then defer to the `founderos` CLI. The real bootstrap
 and wizard logic lives **inside the CLI package** so there is one source of
-truth, it ships compiled with `founder-os`, and it is covered by the CLI's
+truth, it ships compiled with `founderos`, and it is covered by the CLI's
 build and tests. The `bootstrap.ts` / `setup-wizard.ts` files here are thin
 standalone entrypoints for local use.
 
@@ -37,7 +37,7 @@ standalone entrypoints for local use.
 node install/validate-env.js          # standalone env check — no build needed
 
 # These two need the CLI built first (they import from cli/dist):
-pnpm --filter founder-os build
+pnpm --filter founderos build
 pnpm tsx install/bootstrap.ts         # full bootstrap pipeline
 pnpm tsx install/setup-wizard.ts      # interactive wizard
 ```
