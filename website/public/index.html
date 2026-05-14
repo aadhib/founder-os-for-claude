@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Founder OS — the AI operating system for founders</title>
+  <meta name="description" content="Cursor Rules + Claude Skills + Founder Workflows. 8 enterprise-grade AI skills for founders, CTOs, and product builders. Installable in one command." />
+  <meta property="og:title" content="Founder OS for Claude" />
+  <meta property="og:description" content="The AI operating system for founders. Installable in one command." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="/">
+      <img src="logo.svg" alt="" width="32" height="32" />
+      <span>Founder OS</span>
+    </a>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/aadhib/founder-os-for-claude">Docs</a>
+      <a class="nav-cta" href="https://github.com/aadhib/founder-os-for-claude">GitHub ★</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="pill">8 enterprise-grade Claude Skills · one command</div>
+    <h1>The AI operating system<br /><span class="grad">for founders.</span></h1>
+    <p class="sub">
+      Cursor Rules + Claude Skills + Founder Workflows. Roadmaps, UI redesigns,
+      launch kits, brutal roasts, agent architecture — structured, opinionated,
+      and installable in one command.
+    </p>
+    <div class="cta-row">
+      <code class="install-cmd" id="cmd">npx founder-os install</code>
+      <button class="copy" data-copy="npx founder-os install">Copy</button>
+    </div>
+    <div class="cta-row secondary">
+      <a class="btn" href="https://github.com/aadhib/founder-os-for-claude">Star on GitHub</a>
+      <a class="btn ghost" href="#skills">See the skills</a>
+    </div>
+    <p class="micro">macOS · Linux · Windows — Claude Code · Cursor · Codex CLI · Gemini CLI</p>
+  </header>
+
+  <section class="section" id="skills">
+    <h2>8 skills. One system.</h2>
+    <p class="section-sub">Each skill ships with a workflow engine, output schema, quality checklist, and anti-patterns. Not prompts — systems.</p>
+    <div class="grid">
+      <article class="card"><span class="ico">🧭</span><h3>founder-mode</h3><p>AI COO + CTO + Product Strategist. Roadmaps, prioritization, GTM, pricing.</p></article>
+      <article class="card"><span class="ico">🎨</span><h3>fix-my-ui</h3><p>Drop a screenshot, get a premium 2026 redesign brief with Tailwind specs.</p></article>
+      <article class="card"><span class="ico">🚀</span><h3>saas-launch-kit</h3><p>Positioning, landing copy, pricing, onboarding, Product Hunt plan.</p></article>
+      <article class="card"><span class="ico">🔥</span><h3>startup-roast</h3><p>Brutally honest, constructive teardown of your product and landing page.</p></article>
+      <article class="card"><span class="ico">📱</span><h3>viral-carousel</h3><p>LinkedIn / Instagram carousels — hooks, slides, captions, visual direction.</p></article>
+      <article class="card"><span class="ico">🛡️</span><h3>production-ready</h3><p>Audits a prototype across 12 domains into a path to production.</p></article>
+      <article class="card"><span class="ico">🤖</span><h3>ai-agent-architect</h3><p>Multi-agent system design: MCP, tools, memory, evals, observability.</p></article>
+      <article class="card"><span class="ico">🏢</span><h3>enterprise-saas-audit</h3><p>SOC2, RBAC, SSO, multi-tenancy — readiness audit to close enterprise deals.</p></article>
+    </div>
+  </section>
+
+  <section class="section alt" id="install">
+    <h2>Installable in one command</h2>
+    <p class="section-sub">The CLI detects your tools, validates your environment, and places skills where they belong.</p>
+    <div class="install-grid">
+      <div class="install-block"><span>npm</span><code>npx founder-os install</code></div>
+      <div class="install-block"><span>pnpm</span><code>pnpm dlx founder-os install</code></div>
+      <div class="install-block"><span>bun</span><code>bunx founder-os install</code></div>
+      <div class="install-block"><span>curl</span><code>curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh | bash</code></div>
+    </div>
+    <ol class="steps">
+      <li>Refuse root, then detect Claude Code, Cursor, Codex &amp; Gemini</li>
+      <li>Validate Node, package manager &amp; OS</li>
+      <li>Path-validate &amp; back up — then place skills</li>
+      <li>Run <code>doctor</code> &amp; print next steps</li>
+    </ol>
+    <p class="micro">No clone. No ZIP. No manual copying. Preview first with <code>npx founder-os install --dry-run</code> · audit with <code>founder-os doctor --security</code>.</p>
+  </section>
+
+  <section class="section">
+    <h2>Secure by design</h2>
+    <p class="section-sub">Built to be safe to run on day one — no elevation, no surprises.</p>
+    <div class="grid">
+      <article class="card"><span class="ico">🔒</span><h3>No elevation</h3><p>Installers refuse root / Administrator and only write inside your home directory.</p></article>
+      <article class="card"><span class="ico">🛡️</span><h3>Path-validated writes</h3><p>System directories and the home root are hard-refused. Symlinked targets are never followed.</p></article>
+      <article class="card"><span class="ico">💾</span><h3>Backups before overwrite</h3><p><code>--force</code> copies the existing folder to a timestamped backup first.</p></article>
+      <article class="card"><span class="ico">📦</span><h3>No install-time code</h3><p>No <code>postinstall</code> hook. Published to npm with build provenance.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Why not just use prompts?</h2>
+    <table class="compare">
+      <thead><tr><th></th><th>Prompt packs</th><th>Cursor rules</th><th class="hl">Founder OS</th></tr></thead>
+      <tbody>
+        <tr><td>One-command install</td><td>—</td><td>manual</td><td class="hl">✓</td></tr>
+        <tr><td>Multi-tool support</td><td>—</td><td>—</td><td class="hl">✓</td></tr>
+        <tr><td>Workflow engines + schemas</td><td>—</td><td>—</td><td class="hl">✓</td></tr>
+        <tr><td>Environment doctor</td><td>—</td><td>—</td><td class="hl">✓</td></tr>
+        <tr><td>Versioned &amp; updatable</td><td>—</td><td>partial</td><td class="hl">✓</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section cta-final">
+    <h2>Ship like you have a team.</h2>
+    <p class="section-sub">Founder OS is MIT-licensed, local-first, and free.</p>
+    <div class="cta-row">
+      <code class="install-cmd">npx founder-os install</code>
+      <button class="copy" data-copy="npx founder-os install">Copy</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <img src="logo.svg" alt="" width="24" height="24" />
+      <span>Founder OS</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/aadhib/founder-os-for-claude">GitHub</a>
+      <a href="https://github.com/aadhib/founder-os-for-claude/tree/main/docs">Docs</a>
+      <a href="https://discord.gg/founder-os">Discord</a>
+      <a href="https://twitter.com/founderos">X</a>
+    </div>
+    <p class="micro">MIT © Founder OS contributors. Not affiliated with Anthropic.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

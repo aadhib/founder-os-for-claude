@@ -1,0 +1,25 @@
+# Source — published packages ship dist/ only
+**/src/
+**/*.ts
+!**/*.d.ts
+**/tsconfig.json
+
+# Monorepo tooling
+turbo.json
+pnpm-workspace.yaml
+.turbo/
+
+# Tests
+**/*.test.*
+**/__tests__/
+coverage/
+
+# Repo meta
+.github/
+docs/
+website/
+screenshots/
+demos/
+examples/
+.editorconfig
+.prettierrc

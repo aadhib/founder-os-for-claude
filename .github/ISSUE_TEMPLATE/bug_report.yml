@@ -1,0 +1,59 @@
+name: Bug report
+description: Something in the CLI or a skill isn't working
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting. Please run `founder-os doctor` and paste the output below — it covers most of what we need.
+
+  - type: textarea
+    id: doctor
+    attributes:
+      label: "`founder-os doctor` output"
+      description: Paste the full output.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `founder-os install`
+        2. ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Founder OS version
+      placeholder: "1.0.0 (from `founder-os --version`)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Linux, Windows]
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Which AI tool
+      options: [Claude Code, Cursor, Codex CLI, Gemini CLI, Not tool-specific]
+    validations:
+      required: true

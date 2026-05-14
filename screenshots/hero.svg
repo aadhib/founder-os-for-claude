@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="820" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0a0a0b"/><stop offset="1" stop-color="#141416"/>
+    </linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="420" rx="16" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="819" height="419" rx="15.5" stroke="#ffffff" stroke-opacity="0.06"/>
+  <!-- terminal chrome -->
+  <circle cx="28" cy="28" r="6" fill="#ef4444"/>
+  <circle cx="48" cy="28" r="6" fill="#eab308"/>
+  <circle cx="68" cy="28" r="6" fill="#22c55e"/>
+  <text x="410" y="32" font-family="monospace" font-size="13" fill="#52525b" text-anchor="middle">founder-os — install</text>
+  <!-- terminal body -->
+  <text x="32" y="86" font-family="monospace" font-size="15" fill="#a1a1aa">$ npx founder-os install</text>
+  <text x="32" y="120" font-family="monospace" font-size="14" fill="#8b5cf6">▸ Detecting environment</text>
+  <text x="32" y="146" font-family="monospace" font-size="14" fill="#22c55e">✓ Node v20.11.0 detected</text>
+  <text x="32" y="172" font-family="monospace" font-size="14" fill="#22c55e">✓ Detected: Claude Code, Cursor</text>
+  <text x="32" y="198" font-family="monospace" font-size="14" fill="#8b5cf6">▸ Placing skills</text>
+  <text x="32" y="224" font-family="monospace" font-size="14" fill="#22c55e">✓ Installed 8 skills across 2 targets</text>
+  <text x="32" y="262" font-family="monospace" font-size="14" fill="#fafafa">  • founder-mode      • fix-my-ui</text>
+  <text x="32" y="284" font-family="monospace" font-size="14" fill="#fafafa">  • saas-launch-kit   • startup-roast</text>
+  <text x="32" y="306" font-family="monospace" font-size="14" fill="#fafafa">  • viral-carousel    • production-ready</text>
+  <text x="32" y="328" font-family="monospace" font-size="14" fill="#fafafa">  • ai-agent-architect • enterprise-saas-audit</text>
+  <rect x="32" y="356" width="220" height="36" rx="8" fill="url(#ac)"/>
+  <text x="142" y="379" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Founder OS is ready ✦</text>
+  <text x="660" y="400" font-family="sans-serif" font-size="11" fill="#3f3f46">placeholder — replace with a real terminal capture</text>
+</svg>

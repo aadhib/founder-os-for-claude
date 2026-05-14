@@ -1,0 +1,77 @@
+{
+  "name": "founder-os",
+  "version": "1.0.0",
+  "description": "The AI operating system for founders — installs Claude Skills + founder workflows in one command.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "founder-os": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./bootstrap": {
+      "types": "./dist/bootstrap.d.ts",
+      "default": "./dist/bootstrap.js"
+    },
+    "./setup-wizard": {
+      "types": "./dist/setup-wizard.d.ts",
+      "default": "./dist/setup-wizard.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "skills"
+  ],
+  "homepage": "https://github.com/aadhib/founder-os-for-claude#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aadhib/founder-os-for-claude.git",
+    "directory": "cli"
+  },
+  "bugs": {
+    "url": "https://github.com/aadhib/founder-os-for-claude/issues"
+  },
+  "keywords": [
+    "claude",
+    "claude-skills",
+    "cursor",
+    "codex",
+    "gemini",
+    "ai",
+    "founder",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "test": "node scripts/run-tests.cjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist skills .turbo",
+    "prepack": "node scripts/bundle-skills.cjs && npm run build",
+    "prepublishOnly": "node scripts/bundle-skills.cjs && npm run build && npm run typecheck && npm run test && node dist/index.js verify --security"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "execa": "^8.0.1",
+    "inquirer": "^9.3.7",
+    "ora": "^8.1.1"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0"
+  }
+}
