@@ -1,0 +1,21 @@
+# Founder OS — enforce LF line endings everywhere.
+#
+# Without this, a Windows checkout (git's default core.autocrlf=true) delivers
+# CRLF text files. The skill-catalog parser and the structural `verify` checks
+# in cli/src/utils/skills.ts are line-ending sensitive — CRLF would make them
+# fail on Windows while passing on Linux/macOS. Forcing LF keeps every platform
+# byte-identical. (The parser also normalizes CRLF defensively, but the repo
+# itself should never carry CRLF.)
+* text=auto eol=lf
+
+# Shell scripts MUST be LF or they will not run.
+*.sh text eol=lf
+
+# Binary assets — git must never touch these.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.woff binary
+*.woff2 binary

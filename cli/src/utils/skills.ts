@@ -24,8 +24,19 @@ export interface SkillMeta {
   dir: string;
 }
 
+/**
+ * Normalize line endings to LF. SKILL.md files can arrive with CRLF — most
+ * importantly when git checks them out on Windows with `core.autocrlf=true`.
+ * Every line-ending-sensitive regex below assumes `\n`, so we strip `\r` first.
+ * This keeps the parser identical on Windows, macOS, and Linux.
+ */
+function toLf(text: string): string {
+  return text.replace(/\r\n?/g, '\n');
+}
+
 /** Minimal YAML frontmatter parser — flat keys, scalars + inline arrays only. */
-function parseFrontmatter(md: string): Record<string, string | string[]> {
+function parseFrontmatter(rawMd: string): Record<string, string | string[]> {
+  const md = toLf(rawMd);
   const match = md.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return {};
   const out: Record<string, string | string[]> = {};
@@ -105,7 +116,8 @@ export interface SkillVerifyResult {
 }
 
 export async function verifySkill(skill: SkillMeta): Promise<SkillVerifyResult> {
-  const md = await readText(path.join(skill.dir, 'SKILL.md'));
+  // Normalize CRLF -> LF so the section regexes behave identically on Windows.
+  const md = toLf(await readText(path.join(skill.dir, 'SKILL.md')));
   const fm = parseFrontmatter(md);
 
   const missingFrontmatter = ['name', 'description', 'version', 'category', 'tools'].filter(
