@@ -1,24 +1,19 @@
-# Screenshots & brand assets
-
-Visual assets used in the README, docs, and website.
+# Brand assets
 
 | File | Used in | Status |
 |---|---|---|
 | `logo.svg` | README header, website | ✅ final |
-| `hero.svg` | README hero | 🟡 placeholder — replace with a real terminal capture |
-| `install-flow.svg` | README install section | 🟡 placeholder — replace with a real recording/capture |
-| `before-after.svg` | README examples section | 🟡 placeholder — replace with a real `fix-my-ui` before/after |
-| `star-history.svg` | README star-history section | 🟡 placeholder — embed [star-history.com](https://star-history.com) after launch |
 
-## Asset spec (for replacements)
+The README no longer uses mockup placeholder images — it shows **real CLI
+output**, a **real `fix-my-ui` audit scorecard** (from `examples/fix-my-ui/`),
+and a **live star-history chart** (rendered by star-history.com from the repo's
+actual stars).
 
-- **Width:** 820px for inline README images, 600px for the star chart.
+## If you add real captures later
+
+- **Width:** 820px for inline README images, 600px for charts.
 - **Theme:** dark — background `#0a0a0b`, surface `#141416`, accent `#8b5cf6`,
-  highlight `#bef264`. Keep it consistent with `logo.svg`.
-- **Format:** SVG where vector works; PNG/GIF for real captures. Update the
-  README `<img src>` if the extension changes.
-- **Terminal captures:** record with a clean prompt, 14px monospace, the Founder
-  OS color palette. Tools like `asciinema` + `agg` or `vhs` work well.
-
-The SVG placeholders are intentionally branded and presentable — the repo looks
-finished today, and assets can be swapped without touching layout.
+  highlight `#bef264`. Match `logo.svg`.
+- **Terminal captures:** record with [`vhs`](https://github.com/charmbracelet/vhs)
+  or `asciinema` + `agg`, 14px monospace, the Founder OS palette.
+- Drop the file here and reference it from `README.md` with a relative path.

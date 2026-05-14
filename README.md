@@ -10,10 +10,10 @@ Cursor Rules + Claude Skills + Founder Workflows — installable in one command.
 
 [![CI](https://github.com/aadhib/founder-os-for-claude/actions/workflows/ci.yml/badge.svg)](https://github.com/aadhib/founder-os-for-claude/actions/workflows/ci.yml)
 [![Release](https://github.com/aadhib/founder-os-for-claude/actions/workflows/release.yml/badge.svg)](https://github.com/aadhib/founder-os-for-claude/actions/workflows/release.yml)
-[![npm](https://img.shields.io/npm/v/founder-os.svg?color=8b5cf6)](https://www.npmjs.com/package/founder-os)
+[![npm](https://img.shields.io/npm/v/founderos.svg?color=8b5cf6)](https://www.npmjs.com/package/founderos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8b5cf6.svg)](LICENSE)
+[![Node](https://img.shields.io/badge/node-%E2%89%A518-339933.svg)](package.json)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-22c55e.svg)](CONTRIBUTING.md)
-[![Discord](https://img.shields.io/badge/Discord-join-5865F2.svg)](https://discord.gg/founder-os)
 
 [Install](#-install-in-one-command) ·
 [Skills](#-the-skills) ·
@@ -22,9 +22,23 @@ Cursor Rules + Claude Skills + Founder Workflows — installable in one command.
 [Examples](examples/) ·
 [Roadmap](ROADMAP.md)
 
-<img src="screenshots/hero.svg" alt="Founder OS terminal demo" width="820" />
-
 </div>
+
+```console
+$ founderos verify
+
+▌ Founder OS — verify skill catalog
+✓ ai-agent-architect       v1.0.0
+✓ enterprise-saas-audit    v1.0.0
+✓ fix-my-ui                v1.0.0
+✓ founder-mode             v1.0.0
+✓ production-ready         v1.0.0
+✓ saas-launch-kit          v1.0.0
+✓ startup-roast            v1.0.0
+✓ viral-carousel           v1.0.0
+
+✓ All 8 skills pass the structural contract.
+```
 
 ---
 
@@ -92,8 +106,6 @@ founderos verify --security        # confirms skills are plain documentation onl
 ```
 
 The `founderos` package is published to npm with **build provenance** — npm can attest the tarball was built by this repo's release workflow. See [SECURITY.md](SECURITY.md) for the full supply-chain story.
-
-<img src="screenshots/install-flow.svg" alt="Install flow" width="820" />
 
 ---
 
@@ -211,7 +223,21 @@ Real, non-placeholder outputs live in [`examples/`](examples/):
 - [`examples/ai-agent-architect/`](examples/ai-agent-architect/) — multi-agent system design
 - [`examples/viral-carousel/`](examples/viral-carousel/) — 8-slide LinkedIn carousel
 
-<img src="screenshots/before-after.svg" alt="fix-my-ui before and after" width="820" />
+### Sample — a real `fix-my-ui` audit scorecard
+
+From [`examples/fix-my-ui/`](examples/fix-my-ui/), a run on a flat gray SaaS dashboard:
+
+| Pillar | Score | Key issue |
+|---|:---:|---|
+| Spacing & rhythm | 2 / 5 | inconsistent 12/13/17px gutters, no scale |
+| Typography | 2 / 5 | 5 sizes, 3 weights, no hierarchy |
+| Hierarchy | 1 / 5 | 4 elements share the same blue — no entry point |
+| Color & theming | 2 / 5 | flat gray, no background layering |
+| Accessibility | 2 / 5 | gray-on-gray text fails WCAG AA contrast |
+| **Overall** | **2.1 / 5** | rebuilt to **4.6 / 5** in the redesign brief |
+
+> **Before:** "A flat gray wall of numbers where everything is equally loud."
+> **After:** "A layered dark dashboard where the one number that matters is the first — and obvious — thing you see."
 
 ---
 
@@ -260,19 +286,19 @@ Full roadmap → [ROADMAP.md](ROADMAP.md)
 
 ## ⭐ Star history
 
-<div align="center">
-<img src="screenshots/star-history.svg" alt="Star history" width="600" />
-<br/>
-<em>If Founder OS saves you time, a star helps other founders find it.</em>
-</div>
+<a href="https://star-history.com/#aadhib/founder-os-for-claude&Date">
+  <img src="https://api.star-history.com/svg?repos=aadhib/founder-os-for-claude&type=Date" alt="Star history chart" width="600" />
+</a>
+
+If Founder OS saves you time, a ⭐ helps other founders find it.
 
 ---
 
 ## 💬 Community
 
-- **Discord** — [discord.gg/founder-os](https://discord.gg/founder-os)
-- **X / Twitter** — [@founderos](https://twitter.com/founderos)
 - **Discussions** — [GitHub Discussions](https://github.com/aadhib/founder-os-for-claude/discussions)
+- **Issues & skill requests** — [GitHub Issues](https://github.com/aadhib/founder-os-for-claude/issues)
+- **Contributing** — [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
