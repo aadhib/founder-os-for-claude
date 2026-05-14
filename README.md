@@ -10,7 +10,7 @@ Cursor Rules + Claude Skills + Founder Workflows — installable in one command.
 
 [![CI](https://github.com/aadhib/founder-os-for-claude/actions/workflows/ci.yml/badge.svg)](https://github.com/aadhib/founder-os-for-claude/actions/workflows/ci.yml)
 [![Release](https://github.com/aadhib/founder-os-for-claude/actions/workflows/release.yml/badge.svg)](https://github.com/aadhib/founder-os-for-claude/actions/workflows/release.yml)
-[![npm](https://img.shields.io/npm/v/founderos.svg?color=8b5cf6)](https://www.npmjs.com/package/founderos)
+[![npm](https://img.shields.io/npm/v/@aadhib/founderos.svg?color=8b5cf6)](https://www.npmjs.com/package/@aadhib/founderos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-8b5cf6.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-339933.svg)](package.json)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-22c55e.svg)](CONTRIBUTING.md)
@@ -63,9 +63,9 @@ Most "prompt packs" are a folder of `.txt` files. Founder OS is different:
 **Recommended — the npm path (no shell piping, fully transparent):**
 
 ```bash
-npx founderos install          # npm
-pnpm dlx founderos install     # pnpm
-bunx founderos install         # bun
+npx @aadhib/founderos install          # npm
+pnpm dlx @aadhib/founderos install     # pnpm
+bunx @aadhib/founderos install         # bun
 ```
 
 **Shell one-liners (macOS / Linux / Windows):**
@@ -98,7 +98,7 @@ It writes no files itself, uses no temp directories, opens no network connection
 curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 
 # 2. Or skip shells entirely and preview every change first
-npx founderos install --dry-run    # shows exactly what would be written, writes nothing
+npx @aadhib/founderos install --dry-run    # shows exactly what would be written, writes nothing
 
 # 3. After install, audit it
 founderos doctor --security        # path safety, symlink checks, manifest integrity
@@ -130,7 +130,7 @@ Each skill ships with a complete `SKILL.md`: purpose, ideal user, input requirem
 
 ```bash
 # 1. Install everything
-npx founderos install
+npx @aadhib/founderos install
 
 # 2. Confirm your environment is healthy
 founderos doctor

@@ -51,7 +51,7 @@ directories, and records a manifest. The security-relevant surfaces are:
 | **Filesystem writes** (installers, `init`, `remove`, `uninstall`) | path traversal, arbitrary overwrite, symlink escape | every write routed through `assertSafeInstallPath` — see below |
 | **Skill ids used as path segments** | a crafted catalog entry could traverse | `assertSafeSkillId` enforces kebab-case, no separators, no `..` |
 | **The manifest** (`~/.founderos/manifest.json`) | a tampered manifest could point `remove`/`uninstall` at any path | every manifest path is **re-validated** before deletion |
-| **`curl | bash` install path** | classic untrusted-pipe risk | the script is short, auditable, downloads nothing else, and the npm path (`npx founderos install`) avoids piping entirely |
+| **`curl | bash` install path** | classic untrusted-pipe risk | the script is short, auditable, downloads nothing else, and the npm path (`npx @aadhib/founderos install`) avoids piping entirely |
 | **Dependency chain** | a compromised dependency | minimal, pinned dependencies; `pnpm audit` gate in CI; Dependabot; no `postinstall` |
 | **Release pipeline** | a malicious publish | publish only on maintainer-pushed tags; least-privilege workflow tokens; npm provenance |
 
@@ -106,7 +106,7 @@ To reproduce locally:
 ```bash
 git clone https://github.com/aadhib/founder-os-for-claude
 cd founder-os-for-claude && pnpm install --frozen-lockfile
-pnpm --filter founderos build
+pnpm --filter @aadhib/founderos build
 node cli/scripts/bundle-skills.cjs
 # cli/dist + cli/skills now match the published package contents
 ```
@@ -123,7 +123,7 @@ comments say. Always read them first:
 curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 ```
 
-Or skip shells entirely: `npx founderos install --dry-run`.
+Or skip shells entirely: `npx @aadhib/founderos install --dry-run`.
 
 ## Dependency policy
 
@@ -140,7 +140,7 @@ Or skip shells entirely: `npx founderos install --dry-run`.
 
 ## Hardening recommendations for users
 
-- Prefer `npx founderos install` over `curl | bash`.
+- Prefer `npx @aadhib/founderos install` over `curl | bash`.
 - Run `founderos install --dry-run` first to preview every change.
 - Run `founderos doctor --security` after installing.
 - Review which directories were written — `founderos doctor` prints them.

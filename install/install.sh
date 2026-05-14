@@ -8,7 +8,7 @@
 #   1. Refuses to run as root (Founder OS never needs elevation).
 #   2. Checks that Node.js 18+ and a package runner (npx/pnpm/bun) exist.
 #   3. Prints the exact command it is about to run.
-#   4. Runs `<runner> founderos@latest install --from-bootstrap`.
+#   4. Runs `<runner> @aadhib/founderos@latest install --from-bootstrap`.
 #
 # It downloads NOTHING else, writes NO files itself, and uses NO temp
 # directories. All real work is done by the `founderos` npm package, whose
@@ -16,12 +16,12 @@
 #   curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 #
 # Prefer not to pipe to a shell at all? Use the npm path directly:
-#   npx founderos@latest install
+#   npx @aadhib/@aadhib/founderos@latest install
 
 set -euo pipefail
 
 readonly REPO="aadhib/founder-os-for-claude"
-readonly PKG="founderos@latest"
+readonly PKG="@aadhib/founderos@latest"
 
 # ── styling ───────────────────────────────────────────────────────────────
 if [ -t 1 ]; then

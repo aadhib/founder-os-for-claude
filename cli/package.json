@@ -1,5 +1,5 @@
 {
-  "name": "founderos",
+  "name": "@aadhib/founderos",
   "version": "1.0.0",
   "description": "The AI operating system for founders — installs Claude Skills + founder workflows in one command.",
   "license": "MIT",

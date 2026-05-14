@@ -5,7 +5,7 @@ clip — link them from the README and the website once recorded.
 
 | Demo | Shows | Status |
 |---|---|---|
-| `install.cast` | `npx founderos install` end to end | 🟡 to record |
+| `install.cast` | `npx @aadhib/founderos install` end to end | 🟡 to record |
 | `fix-my-ui.cast` | Dropping a screenshot, getting a redesign brief | 🟡 to record |
 | `startup-roast.cast` | Roasting a landing page live | 🟡 to record |
 | `founder-mode.cast` | Generating a 90-day plan from a one-liner | 🟡 to record |

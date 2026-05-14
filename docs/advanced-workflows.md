@@ -79,7 +79,7 @@ git add .founderos.json FOUNDER_OS.md .claude/skills
 git commit -m "chore: add Founder OS skills"
 ```
 
-Teammates run `npx founderos init` after cloning — same skills, same versions,
+Teammates run `npx @aadhib/founderos init` after cloning — same skills, same versions,
 no global install required. Run `founderos update` to pull catalog updates.
 
 ## Automating with `--json`

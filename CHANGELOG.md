@@ -10,7 +10,7 @@ All notable changes to Founder OS are documented here. Format based on
 - **Renamed the npm package and CLI binary `founder-os` → `founderos`.** The
   unscoped name `founder-os` was already taken on npm by an unrelated project,
   so `npx founder-os install` would have run the wrong package. Install with
-  `npx founderos install`; the command is `founderos`.
+  `npx @aadhib/founderos install`; the command is `founderos`.
 
 ### Added
 - `founderos uninstall` — clean removal via the manifest, with `--dry-run`,

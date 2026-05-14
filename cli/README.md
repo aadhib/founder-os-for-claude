@@ -6,7 +6,7 @@ skills in the right directories, and keeps everything in sync.
 ## Install
 
 ```bash
-npx founderos install
+npx @aadhib/founderos install
 ```
 
 ## Commands
@@ -43,7 +43,7 @@ where, so `update` and `remove` are precise rather than best-effort.
 
 ```bash
 pnpm install
-pnpm --filter founderos build
-pnpm --filter founderos test
+pnpm --filter @aadhib/founderos build
+pnpm --filter @aadhib/founderos test
 node cli/dist/index.js doctor
 ```

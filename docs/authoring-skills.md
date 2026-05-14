@@ -74,7 +74,7 @@ The CLI ships a stub template ([`cli/src/templates/index.ts`](../cli/src/templat
 `renderSkillStub`). Create the folder and `SKILL.md`, fill in every section, then:
 
 ```bash
-pnpm --filter founderos build
+pnpm --filter @aadhib/founderos build
 node cli/dist/index.js verify     # must pass
 ```
 

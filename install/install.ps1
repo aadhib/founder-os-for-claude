@@ -7,14 +7,14 @@
     1. Refuses to run elevated (Founder OS never needs Administrator).
     2. Checks that Node.js 18+ and a package runner (npx/pnpm/bun) exist.
     3. Prints the exact command it is about to run.
-    4. Runs `<runner> founderos@latest install --from-bootstrap`.
+    4. Runs `<runner> @aadhib/founderos@latest install --from-bootstrap`.
 
   It downloads NOTHING else, writes NO files itself, and uses NO temp
   directories. All real work is done by the `founderos` npm package, whose
   source is public and auditable.
 
   Prefer not to pipe to a shell? Use the npm path directly:
-    npx founderos@latest install
+    npx @aadhib/@aadhib/founderos@latest install
 #>
 
 [CmdletBinding()]
@@ -28,7 +28,7 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
 $Repo = 'aadhib/founder-os-for-claude'
-$Pkg  = 'founderos@latest'
+$Pkg  = '@aadhib/founderos@latest'
 
 function Write-Step($m) { Write-Host "> $m" -ForegroundColor Magenta }
 function Write-Ok($m)   { Write-Host "OK $m" -ForegroundColor Green }

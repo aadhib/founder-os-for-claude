@@ -17,9 +17,9 @@ You never clone the repo, download a ZIP, or copy skills by hand. Pick one:
 ### npm / pnpm / bun — recommended
 
 ```bash
-npx founderos install
-pnpm dlx founderos install
-bunx founderos install
+npx @aadhib/founderos install
+pnpm dlx @aadhib/founderos install
+bunx @aadhib/founderos install
 ```
 
 ### curl (macOS / Linux)
@@ -37,14 +37,14 @@ irm https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/
 > **Security note:** the `curl | bash` and `irm | iex` paths run a short shell
 > script that only checks Node and hands off to the npm package — it downloads
 > nothing else and never elevates. Inspect it first with
-> `curl -fsSL <url>`, or prefer `npx founderos install`. The shell scripts
+> `curl -fsSL <url>`, or prefer `npx @aadhib/founderos install`. The shell scripts
 > require confirmation before doing anything (pass `--yes` to skip). See
 > [Security](security.md) and [SECURITY.md](../SECURITY.md).
 
 ### Preview before you install
 
 ```bash
-npx founderos install --dry-run
+npx @aadhib/founderos install --dry-run
 ```
 
 Shows every directory that would be created or overwritten — and writes nothing.
@@ -89,11 +89,11 @@ To commit skills alongside a repo so your whole team shares them:
 
 ```bash
 cd your-project
-npx founderos init
+npx @aadhib/founderos init
 ```
 
 This writes `.founderos.json` and places skills under `.claude/skills/` (or your
-tool's project directory). Teammates run `npx founderos init` after cloning.
+tool's project directory). Teammates run `npx @aadhib/founderos init` after cloning.
 
 ## Verifying the install
 

@@ -27,7 +27,7 @@ Corporate networks sometimes block piped shell installs. Use the package-manager
 path instead:
 
 ```bash
-npx founderos install
+npx @aadhib/founderos install
 ```
 
 ### Permission denied writing skills

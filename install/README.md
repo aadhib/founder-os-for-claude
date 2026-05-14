@@ -15,7 +15,7 @@ user's machine.
 ## How the handoff works
 
 ```
-curl|bash  ──►  install.sh  ──►  npx founderos install --from-bootstrap
+curl|bash  ──►  install.sh  ──►  npx @aadhib/founderos install --from-bootstrap
                                         │
                                         ▼
                                   cli/src/bootstrap.ts
@@ -37,7 +37,7 @@ standalone entrypoints for local use.
 node install/validate-env.js          # standalone env check — no build needed
 
 # These two need the CLI built first (they import from cli/dist):
-pnpm --filter founderos build
+pnpm --filter @aadhib/founderos build
 pnpm tsx install/bootstrap.ts         # full bootstrap pipeline
 pnpm tsx install/setup-wizard.ts      # interactive wizard
 ```

@@ -27,8 +27,8 @@ Run `founderos verify` to validate the whole catalog against this contract.
 ## Installing
 
 ```bash
-npx founderos install            # all skills, all detected tools
-npx founderos add fix-my-ui      # one skill
+npx @aadhib/founderos install            # all skills, all detected tools
+npx @aadhib/founderos add fix-my-ui      # one skill
 ```
 
 Skills are plain Markdown — read them before enabling. They contain no

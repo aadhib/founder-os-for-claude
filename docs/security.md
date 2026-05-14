@@ -33,7 +33,7 @@ an install hook, and shows you exactly what it will do before it does it.
 curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 
 # Or skip shells entirely and preview every change
-npx founderos install --dry-run
+npx @aadhib/founderos install --dry-run
 ```
 
 `--dry-run` prints every directory that would be created or overwritten and
