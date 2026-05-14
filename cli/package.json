@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "founderos": "./dist/index.js"
+    "founderos": "dist/index.js"
   },
   "exports": {
     ".": {
