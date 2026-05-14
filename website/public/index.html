@@ -2,128 +2,567 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Founder OS — the AI operating system for founders</title>
-  <meta name="description" content="Cursor Rules + Claude Skills + Founder Workflows. 8 enterprise-grade AI skills for founders, CTOs, and product builders. Installable in one command." />
-  <meta property="og:title" content="Founder OS for Claude" />
-  <meta property="og:description" content="The AI operating system for founders. Installable in one command." />
+  <meta name="description" content="Founder OS is a structured AI workflow system for founders and operators — 8 enterprise-grade Claude Skills, a TypeScript CLI, installable in one command across Claude Code, Cursor, Codex CLI and Gemini CLI. Local-first, open-source, no telemetry." />
+  <meta name="theme-color" content="#07070a" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://github.com/aadhib/founder-os-for-claude" />
+
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <link rel="icon" href="logo.svg" />
+  <meta property="og:title" content="Founder OS — the AI operating system for founders" />
+  <meta property="og:description" content="A structured AI workflow system for founders and operators. 8 enterprise-grade Claude Skills. One command to install. Local-first, open-source, no telemetry." />
+  <meta property="og:image" content="logo.svg" />
+  <meta property="og:url" content="https://github.com/aadhib/founder-os-for-claude" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Founder OS — the AI operating system for founders" />
+  <meta name="twitter:description" content="8 enterprise-grade Claude Skills + a TypeScript CLI. One command. Local-first, open-source, no telemetry." />
+  <meta name="twitter:image" content="logo.svg" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="nav">
-    <a class="brand" href="/">
-      <img src="logo.svg" alt="" width="32" height="32" />
-      <span>Founder OS</span>
-    </a>
-    <div class="nav-links">
-      <a href="#skills">Skills</a>
-      <a href="#install">Install</a>
-      <a href="https://github.com/aadhib/founder-os-for-claude">Docs</a>
-      <a class="nav-cta" href="https://github.com/aadhib/founder-os-for-claude">GitHub ★</a>
-    </div>
-  </nav>
+  <!-- scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-bar"></span></div>
 
-  <header class="hero">
-    <div class="pill">8 enterprise-grade Claude Skills · one command</div>
-    <h1>The AI operating system<br /><span class="grad">for founders.</span></h1>
-    <p class="sub">
-      Cursor Rules + Claude Skills + Founder Workflows. Roadmaps, UI redesigns,
-      launch kits, brutal roasts, agent architecture — structured, opinionated,
-      and installable in one command.
-    </p>
-    <div class="cta-row">
-      <code class="install-cmd" id="cmd">npx founder-os install</code>
-      <button class="copy" data-copy="npx founder-os install">Copy</button>
-    </div>
-    <div class="cta-row secondary">
-      <a class="btn" href="https://github.com/aadhib/founder-os-for-claude">Star on GitHub</a>
-      <a class="btn ghost" href="#skills">See the skills</a>
-    </div>
-    <p class="micro">macOS · Linux · Windows — Claude Code · Cursor · Codex CLI · Gemini CLI</p>
+  <!-- ambient background -->
+  <div class="bg-layer" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="glow glow-1" data-parallax="0.05"></div>
+    <div class="glow glow-2" data-parallax="0.09"></div>
+    <div class="glow glow-3" data-parallax="0.04"></div>
+  </div>
+
+  <a class="skip-link" href="#what">Skip to content</a>
+
+  <!-- ───────────────────────── nav ───────────────────────── -->
+  <header class="nav" id="nav">
+    <nav class="nav-inner" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Founder OS — home">
+        <img src="logo.svg" alt="" width="30" height="30" />
+        <span>Founder&nbsp;OS</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#what">What</a>
+        <a href="#skills">Skills</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#install">Install</a>
+        <a href="#cli">CLI</a>
+        <a href="#security">Security</a>
+        <a href="#roadmap">Roadmap</a>
+        <a class="nav-cta" href="https://github.com/aadhib/founder-os-for-claude" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+          Star on GitHub
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
   </header>
 
-  <section class="section" id="skills">
-    <h2>8 skills. One system.</h2>
-    <p class="section-sub">Each skill ships with a workflow engine, output schema, quality checklist, and anti-patterns. Not prompts — systems.</p>
-    <div class="grid">
-      <article class="card"><span class="ico">🧭</span><h3>founder-mode</h3><p>AI COO + CTO + Product Strategist. Roadmaps, prioritization, GTM, pricing.</p></article>
-      <article class="card"><span class="ico">🎨</span><h3>fix-my-ui</h3><p>Drop a screenshot, get a premium 2026 redesign brief with Tailwind specs.</p></article>
-      <article class="card"><span class="ico">🚀</span><h3>saas-launch-kit</h3><p>Positioning, landing copy, pricing, onboarding, Product Hunt plan.</p></article>
-      <article class="card"><span class="ico">🔥</span><h3>startup-roast</h3><p>Brutally honest, constructive teardown of your product and landing page.</p></article>
-      <article class="card"><span class="ico">📱</span><h3>viral-carousel</h3><p>LinkedIn / Instagram carousels — hooks, slides, captions, visual direction.</p></article>
-      <article class="card"><span class="ico">🛡️</span><h3>production-ready</h3><p>Audits a prototype across 12 domains into a path to production.</p></article>
-      <article class="card"><span class="ico">🤖</span><h3>ai-agent-architect</h3><p>Multi-agent system design: MCP, tools, memory, evals, observability.</p></article>
-      <article class="card"><span class="ico">🏢</span><h3>enterprise-saas-audit</h3><p>SOC2, RBAC, SSO, multi-tenancy — readiness audit to close enterprise deals.</p></article>
-    </div>
-  </section>
+  <main id="top">
 
-  <section class="section alt" id="install">
-    <h2>Installable in one command</h2>
-    <p class="section-sub">The CLI detects your tools, validates your environment, and places skills where they belong.</p>
-    <div class="install-grid">
-      <div class="install-block"><span>npm</span><code>npx founder-os install</code></div>
-      <div class="install-block"><span>pnpm</span><code>pnpm dlx founder-os install</code></div>
-      <div class="install-block"><span>bun</span><code>bunx founder-os install</code></div>
-      <div class="install-block"><span>curl</span><code>curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh | bash</code></div>
-    </div>
-    <ol class="steps">
-      <li>Refuse root, then detect Claude Code, Cursor, Codex &amp; Gemini</li>
-      <li>Validate Node, package manager &amp; OS</li>
-      <li>Path-validate &amp; back up — then place skills</li>
-      <li>Run <code>doctor</code> &amp; print next steps</li>
-    </ol>
-    <p class="micro">No clone. No ZIP. No manual copying. Preview first with <code>npx founder-os install --dry-run</code> · audit with <code>founder-os doctor --security</code>.</p>
-  </section>
+    <!-- ───────────────────────── hero ───────────────────────── -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow"><span class="dot"></span> v1.0 · open-source · MIT</span>
+          <h1>The AI operating system<br />for <span class="grad">founders</span>.</h1>
+          <p class="lede">
+            Not another prompt pack. Founder OS is a structured workflow system —
+            8 enterprise-grade Claude Skills and a TypeScript CLI that installs
+            them across every AI tool you use, in one command.
+          </p>
 
-  <section class="section">
-    <h2>Secure by design</h2>
-    <p class="section-sub">Built to be safe to run on day one — no elevation, no surprises.</p>
-    <div class="grid">
-      <article class="card"><span class="ico">🔒</span><h3>No elevation</h3><p>Installers refuse root / Administrator and only write inside your home directory.</p></article>
-      <article class="card"><span class="ico">🛡️</span><h3>Path-validated writes</h3><p>System directories and the home root are hard-refused. Symlinked targets are never followed.</p></article>
-      <article class="card"><span class="ico">💾</span><h3>Backups before overwrite</h3><p><code>--force</code> copies the existing folder to a timestamped backup first.</p></article>
-      <article class="card"><span class="ico">📦</span><h3>No install-time code</h3><p>No <code>postinstall</code> hook. Published to npm with build provenance.</p></article>
-    </div>
-  </section>
+          <div class="hero-cmd">
+            <code id="hero-install">npx founderos install</code>
+            <button class="copy-btn" data-copy="npx founderos install" aria-label="Copy install command">
+              <span class="copy-ico" aria-hidden="true"></span><span class="copy-label">Copy</span>
+            </button>
+          </div>
 
-  <section class="section">
-    <h2>Why not just use prompts?</h2>
-    <table class="compare">
-      <thead><tr><th></th><th>Prompt packs</th><th>Cursor rules</th><th class="hl">Founder OS</th></tr></thead>
-      <tbody>
-        <tr><td>One-command install</td><td>—</td><td>manual</td><td class="hl">✓</td></tr>
-        <tr><td>Multi-tool support</td><td>—</td><td>—</td><td class="hl">✓</td></tr>
-        <tr><td>Workflow engines + schemas</td><td>—</td><td>—</td><td class="hl">✓</td></tr>
-        <tr><td>Environment doctor</td><td>—</td><td>—</td><td class="hl">✓</td></tr>
-        <tr><td>Versioned &amp; updatable</td><td>—</td><td>partial</td><td class="hl">✓</td></tr>
-      </tbody>
-    </table>
-  </section>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/aadhib/founder-os-for-claude" target="_blank" rel="noopener">View on GitHub</a>
+            <a class="btn btn-ghost" href="#skills">Explore the 8 skills</a>
+          </div>
 
-  <section class="section cta-final">
-    <h2>Ship like you have a team.</h2>
-    <p class="section-sub">Founder OS is MIT-licensed, local-first, and free.</p>
-    <div class="cta-row">
-      <code class="install-cmd">npx founder-os install</code>
-      <button class="copy" data-copy="npx founder-os install">Copy</button>
-    </div>
-  </section>
+          <ul class="trust-row" aria-label="Trust">
+            <li><span class="tick" aria-hidden="true"></span> Local-first</li>
+            <li><span class="tick" aria-hidden="true"></span> Open-source</li>
+            <li><span class="tick" aria-hidden="true"></span> No telemetry</li>
+            <li><span class="tick" aria-hidden="true"></span> No sudo / admin</li>
+          </ul>
+        </div>
 
+        <!-- animated terminal -->
+        <div class="hero-visual reveal" data-reveal-delay="120">
+          <div class="terminal" id="terminal">
+            <div class="term-chrome">
+              <span class="tc-dot r"></span><span class="tc-dot y"></span><span class="tc-dot g"></span>
+              <span class="term-title">founderos install</span>
+            </div>
+            <div class="term-body">
+              <p class="tl" style="--i:0"><span class="prompt">$</span> npx founderos install</p>
+              <p class="tl ok" style="--i:1">▸ Refusing to run as root — good</p>
+              <p class="tl ok" style="--i:2">✓ Node v20.11.0 · pnpm detected</p>
+              <p class="tl" style="--i:3">▸ Detecting AI tools</p>
+              <p class="tl ok" style="--i:4">✓ Claude Code, Cursor detected</p>
+              <p class="tl" style="--i:5">▸ Path-validating &amp; placing skills</p>
+              <p class="tl ok" style="--i:6">✓ 8 skills installed · 2 targets</p>
+              <p class="tl muted" style="--i:7">  /founder-mode  /fix-my-ui  /startup-roast</p>
+              <p class="tl muted" style="--i:8">  /saas-launch-kit  /viral-carousel  …</p>
+              <p class="tl done" style="--i:9"><span class="prompt grad">✦</span> Founder OS is ready.</p>
+            </div>
+          </div>
+          <div class="visual-glow" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="scroll-hint reveal" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── what it is ───────────────────────── -->
+    <section class="section" id="what">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">01 — What it is</span>
+          <h2>A workflow system, not a prompt pack.</h2>
+          <p class="section-sub">
+            Most "prompt packs" are a folder of <code>.txt</code> files. Founder OS
+            is a real developer platform: every skill ships with a workflow engine,
+            an output schema, a quality checklist, and documented anti-patterns —
+            and a CLI that wires them into your tools properly.
+          </p>
+        </header>
+
+        <div class="feature-grid">
+          <article class="glass feature reveal">
+            <div class="feature-ico">⚙️</div>
+            <h3>Structured skills</h3>
+            <p>Each of the 8 skills is a documented system — purpose, operating principles, a step-by-step workflow engine, and a concrete output schema. Deterministic, not vibes.</p>
+          </article>
+          <article class="glass feature reveal" data-reveal-delay="80">
+            <div class="feature-ico">🧰</div>
+            <h3>A real CLI</h3>
+            <p>A strict-TypeScript CLI detects your environment, validates it, places skills in the right per-tool directories, and tracks everything in a manifest.</p>
+          </article>
+          <article class="glass feature reveal" data-reveal-delay="160">
+            <div class="feature-ico">🌐</div>
+            <h3>Cross-tool, cross-OS</h3>
+            <p>Claude Code, Cursor, Codex CLI and Gemini CLI — on macOS, Linux and Windows. One install, everywhere you work.</p>
+          </article>
+          <article class="glass feature reveal" data-reveal-delay="240">
+            <div class="feature-ico">🔒</div>
+            <h3>Safe by design</h3>
+            <p>No elevation, path-validated writes, automatic backups, dry-run everything, no install hooks, no telemetry. Safe to run on day one.</p>
+          </article>
+        </div>
+
+        <!-- who it is for -->
+        <div class="audience reveal">
+          <h3 class="audience-title">Built for people who ship companies</h3>
+          <ul class="audience-list">
+            <li><span>🚀</span> SaaS founders</li>
+            <li><span>🧪</span> Indie hackers</li>
+            <li><span>🏗️</span> Startup CTOs</li>
+            <li><span>🏢</span> Agencies</li>
+            <li><span>📦</span> Product builders</li>
+            <li><span>🤖</span> AI operators</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── skills ───────────────────────── -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">02 — The skills</span>
+          <h2>Eight skills. One operating system.</h2>
+          <p class="section-sub">
+            Strategy, design, growth, engineering — each skill is calibrated to a
+            real founder problem and ends with an output you can act on today.
+          </p>
+        </header>
+
+        <div class="skill-grid">
+          <article class="glass skill reveal" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🧭</span><span class="skill-tag strategy">strategy</span></div>
+            <h3>founder-mode</h3>
+            <p>Your AI COO + CTO + Product Strategist. Turns fuzzy intent into a ranked, sequenced operating plan — roadmaps, prioritization, GTM, pricing — where every recommendation carries an assumption and a kill criterion.</p>
+          </article>
+
+          <article class="glass skill reveal" data-reveal-delay="60" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🎨</span><span class="skill-tag design">design</span></div>
+            <h3>fix-my-ui</h3>
+            <p>Drop a UI screenshot, get a premium 2026 redesign brief: an 8-pillar audit scorecard, a corrected spacing / type / color system, region-by-region Tailwind specs, motion suggestions, and a shareable before/after narrative.</p>
+          </article>
+
+          <article class="glass skill reveal" data-reveal-delay="120" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🚀</span><span class="skill-tag growth">growth</span></div>
+            <h3>saas-launch-kit</h3>
+            <p>An end-to-end launch system from one positioning statement: landing copy, pricing tiers, onboarding, lifecycle emails, a dated Product Hunt sequence, SEO scaffold, and analytics — all internally consistent.</p>
+          </article>
+
+          <article class="glass skill reveal" data-reveal-delay="180" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🔥</span><span class="skill-tag growth">growth</span></div>
+            <h3>startup-roast</h3>
+            <p>A brutally honest, constructive teardown of your product and landing page: the 5-second test, a clarity teardown with verbatim quotes, a trust audit, a graded verdict, and a fix list ordered by leverage.</p>
+          </article>
+
+          <article class="glass skill reveal" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">📱</span><span class="skill-tag growth">growth</span></div>
+            <h3>viral-carousel</h3>
+            <p>LinkedIn and Instagram carousels: five hook options, a narrative spine, slide-by-slide copy, caption, hashtags, concrete visual direction, and a paste-ready design prompt.</p>
+          </article>
+
+          <article class="glass skill reveal" data-reveal-delay="60" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🛡️</span><span class="skill-tag engineering">engineering</span></div>
+            <h3>production-ready</h3>
+            <p>Audits a prototype across 12 domains — security, auth, CI/CD, observability, database safety, scale — and returns a risk-ranked path to production with launch-blockers called out explicitly.</p>
+          </article>
+
+          <article class="glass skill reveal" data-reveal-delay="120" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🤖</span><span class="skill-tag engineering">engineering</span></div>
+            <h3>ai-agent-architect</h3>
+            <p>Designs production agent systems: topology, agent roles, a scoped tool / MCP layer, memory tiers, queues, failure handling, human-in-the-loop checkpoints, an eval harness, observability, and a safety review.</p>
+          </article>
+
+          <article class="glass skill reveal" data-reveal-delay="180" tabindex="0">
+            <div class="skill-top"><span class="skill-emoji">🏢</span><span class="skill-tag engineering">engineering</span></div>
+            <h3>enterprise-saas-audit</h3>
+            <p>Runs the enterprise buyer's checklist on you — SOC2 posture, RBAC, SSO/SCIM, multi-tenancy, audit logs, data residency — and ranks every gap by deal impact with a sequenced roadmap.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── workflow ───────────────────────── -->
+    <section class="section" id="workflow">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">03 — How it works</span>
+          <h2>Install once. Ship better, every loop.</h2>
+          <p class="section-sub">From a single command to a wired-up AI operator stack — and back to shipping.</p>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-step reveal">
+            <div class="ts-num">1</div>
+            <div class="glass ts-card">
+              <h3>Install</h3>
+              <p>One command. The CLI bootstraps with no clone, no ZIP, no manual copying.</p>
+            </div>
+          </li>
+          <li class="timeline-step reveal" data-reveal-delay="80">
+            <div class="ts-num">2</div>
+            <div class="glass ts-card">
+              <h3>Detect tools</h3>
+              <p>It finds Claude Code, Cursor, Codex CLI and Gemini CLI, by binary or config directory.</p>
+            </div>
+          </li>
+          <li class="timeline-step reveal" data-reveal-delay="160">
+            <div class="ts-num">3</div>
+            <div class="glass ts-card">
+              <h3>Place skills</h3>
+              <p>Path-validated, symlink-safe, with automatic backups — into each tool's directory.</p>
+            </div>
+          </li>
+          <li class="timeline-step reveal" data-reveal-delay="240">
+            <div class="ts-num">4</div>
+            <div class="glass ts-card">
+              <h3>Run a workflow</h3>
+              <p><code>/founder-mode</code>, <code>/fix-my-ui</code>, <code>/startup-roast</code> — structured, repeatable, in your editor.</p>
+            </div>
+          </li>
+          <li class="timeline-step reveal" data-reveal-delay="320">
+            <div class="ts-num">5</div>
+            <div class="glass ts-card">
+              <h3>Ship a better product</h3>
+              <p>Audit, fix, launch — then loop. <code>founderos update</code> keeps skills current.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── install ───────────────────────── -->
+    <section class="section" id="install">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">04 — Install</span>
+          <h2>One command. Every package manager.</h2>
+          <p class="section-sub">
+            No clone, no ZIP, no manual copying. The shell scripts refuse root,
+            print the exact command, and confirm before doing anything.
+          </p>
+        </header>
+
+        <div class="install-wrap reveal">
+          <div class="install-col">
+            <h3 class="mini-head">Recommended — npm path</h3>
+            <div class="cmd-row">
+              <code>npx founderos install</code>
+              <button class="copy-btn sm" data-copy="npx founderos install" aria-label="Copy npx command"><span class="copy-ico" aria-hidden="true"></span></button>
+            </div>
+            <div class="cmd-row">
+              <code>pnpm dlx founderos install</code>
+              <button class="copy-btn sm" data-copy="pnpm dlx founderos install" aria-label="Copy pnpm command"><span class="copy-ico" aria-hidden="true"></span></button>
+            </div>
+            <div class="cmd-row">
+              <code>bunx founderos install</code>
+              <button class="copy-btn sm" data-copy="bunx founderos install" aria-label="Copy bun command"><span class="copy-ico" aria-hidden="true"></span></button>
+            </div>
+          </div>
+
+          <div class="install-col">
+            <h3 class="mini-head">Shell one-liners</h3>
+            <div class="cmd-row">
+              <code class="wrap">curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh | bash</code>
+              <button class="copy-btn sm" data-copy="curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh | bash" aria-label="Copy curl command"><span class="copy-ico" aria-hidden="true"></span></button>
+            </div>
+            <div class="cmd-row">
+              <code class="wrap">irm https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.ps1 | iex</code>
+              <button class="copy-btn sm" data-copy="irm https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.ps1 | iex" aria-label="Copy PowerShell command"><span class="copy-ico" aria-hidden="true"></span></button>
+            </div>
+            <p class="install-note">
+              Cautious? Preview every change first with
+              <code>npx founderos install --dry-run</code> — it writes nothing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── CLI ───────────────────────── -->
+    <section class="section" id="cli">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">05 — The CLI</span>
+          <h2>Eleven commands. Everything is inspectable.</h2>
+          <p class="section-sub">Manage skills across every tool from one CLI — with dry-run and security audits built in.</p>
+        </header>
+
+        <div class="cli-grid">
+          <div class="glass cli-cmd reveal"><code>founderos install</code><span>Install skills into your AI tools — wizard, <code>--dry-run</code>, <code>--force</code>.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="40"><code>founderos uninstall</code><span>Cleanly remove skills via the manifest. <code>--dry-run</code>, <code>--restore</code>.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="80"><code>founderos doctor</code><span>Environment + manifest health check. <code>--security</code> for the audit.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="120"><code>founderos list</code><span>List every skill and its install status.</span></div>
+          <div class="glass cli-cmd reveal"><code>founderos update</code><span>Re-sync installed skills with the latest catalog.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="40"><code>founderos init</code><span>Scaffold Founder OS into the current project.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="80"><code>founderos add &lt;skill&gt;</code><span>Install a single skill.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="120"><code>founderos remove &lt;skill&gt;</code><span>Remove a single skill.</span></div>
+          <div class="glass cli-cmd reveal"><code>founderos verify</code><span>Validate the skill catalog. <code>--security</code> audits content.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="40"><code>founderos examples</code><span>Browse the bundled library of real example outputs.</span></div>
+          <div class="glass cli-cmd reveal" data-reveal-delay="80"><code>founderos integrations</code><span>Show supported AI tools and detection status.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── use cases / before-after ───────────────────────── -->
+    <section class="section" id="examples">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">06 — Use cases</span>
+          <h2>What you actually do with it.</h2>
+          <p class="section-sub">Every skill ships with a real, non-placeholder example output in the repo.</p>
+        </header>
+
+        <div class="usecase-grid">
+          <div class="glass usecase reveal"><h3>Redesign an ugly dashboard</h3><p><code>/fix-my-ui</code> → an audit scorecard and a region-by-region Tailwind redesign brief.</p></div>
+          <div class="glass usecase reveal" data-reveal-delay="60"><h3>Audit a startup landing page</h3><p><code>/startup-roast</code> → a graded teardown with verbatim quotes and an ordered fix list.</p></div>
+          <div class="glass usecase reveal" data-reveal-delay="120"><h3>Prepare a SaaS launch</h3><p><code>/saas-launch-kit</code> → positioning, copy, pricing, emails, and a dated launch sequence.</p></div>
+          <div class="glass usecase reveal"><h3>Generate a viral carousel</h3><p><code>/viral-carousel</code> → hooks, slide copy, caption, hashtags, and visual direction.</p></div>
+          <div class="glass usecase reveal" data-reveal-delay="60"><h3>Design an AI agent system</h3><p><code>/ai-agent-architect</code> → topology, tools, memory, evals, and a safety review.</p></div>
+          <div class="glass usecase reveal" data-reveal-delay="120"><h3>Run a production-readiness audit</h3><p><code>/production-ready</code> → a 12-domain audit with launch-blockers ranked by risk.</p></div>
+        </div>
+
+        <!-- before / after -->
+        <div class="ba reveal">
+          <div class="ba-head">
+            <h3>Before → after, in one pass</h3>
+            <p>A real <code>fix-my-ui</code> run: a flat gray dashboard scoring 2.1 / 5, rebuilt into a layered 2026 interface.</p>
+          </div>
+          <div class="ba-panels">
+            <figure class="ba-panel before">
+              <figcaption><span class="ba-badge bad">Before · 2.1 / 5</span></figcaption>
+              <div class="ba-mock ba-before">
+                <span class="m-line w40"></span>
+                <span class="m-block"></span>
+                <div class="m-row"><span class="m-card"></span><span class="m-card"></span><span class="m-card"></span></div>
+                <div class="m-row"><span class="m-btn blue"></span><span class="m-btn blue"></span><span class="m-btn blue"></span></div>
+              </div>
+            </figure>
+            <div class="ba-arrow" aria-hidden="true">→</div>
+            <figure class="ba-panel after">
+              <figcaption><span class="ba-badge good">After · 4.6 / 5</span></figcaption>
+              <div class="ba-mock ba-after">
+                <span class="m-line w25 dim"></span>
+                <span class="m-hero">$48.2k</span>
+                <div class="m-row"><span class="m-card glass"></span><span class="m-card glass"></span></div>
+                <span class="m-btn accent"></span>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── security ───────────────────────── -->
+    <section class="section" id="security">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">07 — Security</span>
+          <h2>Safe to run on day one.</h2>
+          <p class="section-sub">
+            Founder OS only writes plain Markdown into AI-tool folders inside your
+            home directory — and proves it.
+          </p>
+        </header>
+
+        <div class="sec-grid">
+          <article class="glass sec-card reveal"><span class="sec-ico">🚫</span><h3>No sudo / admin</h3><p>The installers refuse to run elevated. The CLI never calls sudo.</p></article>
+          <article class="glass sec-card reveal" data-reveal-delay="60"><span class="sec-ico">🏠</span><h3>Local-first</h3><p>Everything stays on your machine. No accounts, no servers, no hosted dependency.</p></article>
+          <article class="glass sec-card reveal" data-reveal-delay="120"><span class="sec-ico">🛡️</span><h3>Path-validated writes</h3><p>Filesystem roots, system directories and symlink escapes are hard-refused.</p></article>
+          <article class="glass sec-card reveal"><span class="sec-ico">💾</span><h3>Backups before overwrite</h3><p><code>--force</code> copies the existing folder to a timestamped backup first.</p></article>
+          <article class="glass sec-card reveal" data-reveal-delay="60"><span class="sec-ico">👀</span><h3>Dry-run everything</h3><p><code>install --dry-run</code> shows every planned change and writes nothing.</p></article>
+          <article class="glass sec-card reveal" data-reveal-delay="120"><span class="sec-ico">📡</span><h3>No hidden telemetry</h3><p>No tracking, no phone-home, no <code>postinstall</code> hook. The code is the spec.</p></article>
+        </div>
+
+        <p class="sec-foot reveal">
+          Built-in audits — <code>founderos doctor --security</code> and
+          <code>founderos verify --security</code> — check path safety, symlinks,
+          manifest integrity, and confirm skills are plain documentation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── integrations ───────────────────────── -->
+    <section class="section" id="integrations">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">08 — Integrations</span>
+          <h2>Works where you already work.</h2>
+          <p class="section-sub">Four AI tools, three operating systems — detected automatically.</p>
+        </header>
+
+        <div class="integ-row reveal">
+          <div class="glass integ-pill"><span>🟣</span> Claude Code</div>
+          <div class="glass integ-pill"><span>▣</span> Cursor</div>
+          <div class="glass integ-pill"><span>◆</span> Codex CLI</div>
+          <div class="glass integ-pill"><span>✦</span> Gemini CLI</div>
+        </div>
+        <div class="integ-row os reveal" data-reveal-delay="80">
+          <div class="glass integ-pill osp"><span>🍎</span> macOS</div>
+          <div class="glass integ-pill osp"><span>🐧</span> Linux</div>
+          <div class="glass integ-pill osp"><span>⊞</span> Windows</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── roadmap / open source ───────────────────────── -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="kicker">09 — Roadmap &amp; open source</span>
+          <h2>Built in the open.</h2>
+          <p class="section-sub">MIT-licensed, local-first, free. Here's where it's headed — priorities shift with community input.</p>
+        </header>
+
+        <div class="roadmap-grid">
+          <article class="glass road reveal shipped">
+            <span class="road-stage">v1.0 · shipped</span>
+            <ul>
+              <li>One-command cross-platform installer</li>
+              <li>11-command TypeScript CLI</li>
+              <li>8 enterprise-grade skills</li>
+              <li>Claude Code · Cursor · Codex · Gemini</li>
+            </ul>
+          </article>
+          <article class="glass road reveal" data-reveal-delay="80">
+            <span class="road-stage">v1.1 · next</span>
+            <ul>
+              <li>Delta-aware skill updates</li>
+              <li>Per-project skill configs</li>
+              <li>More tools: Windsurf, Zed, JetBrains AI</li>
+            </ul>
+          </article>
+          <article class="glass road reveal" data-reveal-delay="160">
+            <span class="road-stage">v1.2 · studio</span>
+            <ul>
+              <li>Local web UI to browse &amp; configure skills</li>
+              <li>Visual diff for before / after</li>
+              <li>One-click example gallery</li>
+            </ul>
+          </article>
+          <article class="glass road reveal" data-reveal-delay="240">
+            <span class="road-stage">v2.0 · registry</span>
+            <ul>
+              <li>Community skill registry</li>
+              <li>Skill templates &amp; ratings</li>
+              <li>Team workspaces &amp; shared configs</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="contribute glass reveal">
+          <div>
+            <h3>Contributions welcome</h3>
+            <p>New skills, integrations, and fixes — the skill authoring contract and PR process are documented in the repo. No closed-source skills, no hosted lock-in.</p>
+          </div>
+          <a class="btn btn-ghost" href="https://github.com/aadhib/founder-os-for-claude/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Read the contributing guide</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── final CTA ───────────────────────── -->
+    <section class="cta-final" id="get-started">
+      <div class="container">
+        <div class="cta-inner reveal">
+          <h2>Ship like you have a team.</h2>
+          <p>Founder OS is MIT-licensed, local-first, and free. One command to start.</p>
+          <div class="hero-cmd center">
+            <code>npx founderos install</code>
+            <button class="copy-btn" data-copy="npx founderos install" aria-label="Copy install command">
+              <span class="copy-ico" aria-hidden="true"></span><span class="copy-label">Copy</span>
+            </button>
+          </div>
+          <div class="hero-actions center">
+            <a class="btn btn-primary" href="https://github.com/aadhib/founder-os-for-claude" target="_blank" rel="noopener">Star on GitHub</a>
+            <a class="btn btn-ghost" href="https://github.com/aadhib/founder-os-for-claude/tree/main/docs" target="_blank" rel="noopener">Read the docs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ───────────────────────── footer ───────────────────────── -->
   <footer class="footer">
-    <div>
-      <img src="logo.svg" alt="" width="24" height="24" />
-      <span>Founder OS</span>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="" width="26" height="26" />
+        <span>Founder OS</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="https://github.com/aadhib/founder-os-for-claude" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/aadhib/founder-os-for-claude/tree/main/docs" target="_blank" rel="noopener">Docs</a>
+        <a href="https://github.com/aadhib/founder-os-for-claude/blob/main/SECURITY.md" target="_blank" rel="noopener">Security</a>
+        <a href="https://github.com/aadhib/founder-os-for-claude/blob/main/ROADMAP.md" target="_blank" rel="noopener">Roadmap</a>
+        <a href="https://github.com/aadhib/founder-os-for-claude/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+      </nav>
+      <p class="footer-fine">MIT © Founder OS contributors · Local-first · No telemetry · Not affiliated with Anthropic.</p>
     </div>
-    <div class="footer-links">
-      <a href="https://github.com/aadhib/founder-os-for-claude">GitHub</a>
-      <a href="https://github.com/aadhib/founder-os-for-claude/tree/main/docs">Docs</a>
-      <a href="https://discord.gg/founder-os">Discord</a>
-      <a href="https://twitter.com/founderos">X</a>
-    </div>
-    <p class="micro">MIT © Founder OS contributors. Not affiliated with Anthropic.</p>
   </footer>
+
+  <!-- mobile nav overlay -->
+  <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
 
   <script src="app.js"></script>
 </body>

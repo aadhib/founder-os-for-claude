@@ -9,7 +9,7 @@ A tool is considered **detected** if either:
 1. its binary is on your `PATH`, or
 2. its config directory exists in your home folder.
 
-Run `founder-os integrations` to see the live status on your machine.
+Run `founderos integrations` to see the live status on your machine.
 
 If no tool is detected, skills are still placed in the default per-tool
 locations — so nothing is silently dropped — and `doctor` will tell you.
@@ -58,8 +58,8 @@ any tool-specific caveats. The general rule:
 ## Installing for a specific tool
 
 ```bash
-founder-os add fix-my-ui --tool cursor
-founder-os install --yes        # all detected tools
+founderos add fix-my-ui --tool cursor
+founderos install --yes        # all detected tools
 ```
 
 ## Adding a new integration

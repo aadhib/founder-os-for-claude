@@ -1,7 +1,7 @@
 /**
  * Founder OS — scaffolding templates
  *
- * String templates used by `founder-os init`. Kept as plain functions so
+ * String templates used by `founderos init`. Kept as plain functions so
  * they're trivially testable and don't need a templating dependency.
  */
 
@@ -33,7 +33,7 @@ ${config.skills.map((s) => `- \`/${s}\``).join('\n')}
 After cloning, run:
 
 \`\`\`bash
-npx founder-os init
+npx founderos init
 \`\`\`
 
 This re-places the skills into your local tool directories using the pinned
@@ -42,7 +42,7 @@ config. No global install required.
 ## Updating
 
 \`\`\`bash
-npx founder-os update
+npx founderos update
 \`\`\`
 
 ---

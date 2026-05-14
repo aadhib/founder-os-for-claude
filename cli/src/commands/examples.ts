@@ -1,5 +1,5 @@
 /**
- * `founder-os examples`
+ * `founderos examples`
  *
  * Lists the bundled example library and prints how to open each one. Examples
  * are real outputs checked into the repo under examples/.

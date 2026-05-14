@@ -23,7 +23,7 @@ Requirements: Node >= 18, pnpm >= 8.
 
 | Path | What lives here |
 |---|---|
-| `cli/` | The `founder-os` TypeScript CLI |
+| `cli/` | The `founderos` TypeScript CLI |
 | `install/` | Bootstrap scripts (`install.sh`, `install.ps1`, validators) |
 | `skills/` | Claude Skills — one folder per skill |
 | `examples/` | Real example outputs |
@@ -67,7 +67,7 @@ tools: [Claude Code, Cursor, Codex CLI, Gemini CLI]
 - Include at least one **realistic** example. No `lorem ipsum`.
 - List **anti-patterns** — the failure modes a model commonly falls into.
 
-Run `founder-os verify` after adding a skill to validate its frontmatter and structure.
+Run `founderos verify` after adding a skill to validate its frontmatter and structure.
 
 ## Commit & PR conventions
 

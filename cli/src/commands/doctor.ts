@@ -1,5 +1,5 @@
 /**
- * `founder-os doctor`
+ * `founderos doctor`
  *
  * Health check. Validates the environment, reports detected tools, summarizes
  * the install manifest, and surfaces common, fixable issues.
@@ -48,7 +48,7 @@ export async function doctorCommand(args: DoctorArgs = {}): Promise<void> {
   const allSkills = await listSkills();
   logger.raw('\n  Installed skills');
   if (manifest.entries.length === 0) {
-    logger.raw(`    ${glyph.warn} ${color.dim('nothing installed yet — run `founder-os install`')}`);
+    logger.raw(`    ${glyph.warn} ${color.dim('nothing installed yet — run `founderos install`')}`);
   } else {
     const byTool = new Map<string, number>();
     let broken = 0;
@@ -61,7 +61,7 @@ export async function doctorCommand(args: DoctorArgs = {}): Promise<void> {
     }
     if (broken > 0) {
       logger.raw(
-        `    ${glyph.fail} ${color.dim(`${broken} manifest entr(ies) point to missing files — run \`founder-os install --force\``)}`,
+        `    ${glyph.fail} ${color.dim(`${broken} manifest entr(ies) point to missing files — run \`founderos install --force\``)}`,
       );
     }
   }
@@ -72,7 +72,7 @@ export async function doctorCommand(args: DoctorArgs = {}): Promise<void> {
   if (missing.length) {
     logger.raw('\n  Available but not installed');
     for (const s of missing) {
-      logger.raw(`    ${glyph.warn} ${s.id.padEnd(20)} ${color.dim('founder-os add ' + s.id)}`);
+      logger.raw(`    ${glyph.warn} ${s.id.padEnd(20)} ${color.dim('founderos add ' + s.id)}`);
     }
   }
 
@@ -81,7 +81,7 @@ export async function doctorCommand(args: DoctorArgs = {}): Promise<void> {
   logger.raw();
   if (healthy) {
     logger.ok(color.green('Founder OS looks healthy.'));
-    logger.info('Run `founder-os doctor --security` for the security audit.');
+    logger.info('Run `founderos doctor --security` for the security audit.');
   } else if (!env.ok) {
     logger.error('Environment has blocking issues — see above.');
     process.exitCode = 1;
@@ -91,7 +91,7 @@ export async function doctorCommand(args: DoctorArgs = {}): Promise<void> {
   logger.raw();
 }
 
-/** `founder-os doctor --security` — the security-focused audit. */
+/** `founderos doctor --security` — the security-focused audit. */
 async function securityDoctor(): Promise<void> {
   logger.section('Founder OS — security audit');
 

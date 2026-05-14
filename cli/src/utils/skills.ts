@@ -80,7 +80,7 @@ export async function getSkill(id: string): Promise<SkillMeta | undefined> {
   return (await listSkills()).find((s) => s.id === id);
 }
 
-/** Structural validation used by `founder-os verify`. */
+/** Structural validation used by `founderos verify`. */
 const REQUIRED_SECTIONS = [
   'Purpose',
   'Use Cases',

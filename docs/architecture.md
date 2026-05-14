@@ -10,7 +10,7 @@ How Founder OS is put together — for contributors and the curious.
 │  install.sh / install.ps1   ── ensure Node, pick runner  │
 │         │                                                │
 │         ▼                                                │
-│  cli/  founder-os install --from-bootstrap               │
+│  cli/  founderos install --from-bootstrap               │
 │         │                                                │
 │         ▼                                                │
 │  bootstrap.ts ── validate → detect → place → doctor      │
@@ -47,7 +47,7 @@ How Founder OS is put together — for contributors and the curious.
 | `src/commands/` | One file per command. Commands orchestrate; they don't implement low-level logic. |
 | `src/integrations/` | Per-tool detection. The single place that knows about Claude Code / Cursor / Codex / Gemini. |
 | `src/installers/` | Skill placement: copy a skill folder into a tool directory, update the manifest. |
-| `src/templates/` | Scaffolding strings for `founder-os init`. |
+| `src/templates/` | Scaffolding strings for `founderos init`. |
 | `src/utils/logger.ts` | The consistent terminal voice. |
 | `src/utils/env.ts` | Environment validation. |
 | `src/utils/paths.ts` | Every filesystem location, with platform quirks isolated here. |
@@ -71,17 +71,17 @@ isolation.
 
 Each skill is a folder with a `SKILL.md`. The frontmatter is parsed by a minimal
 YAML reader in `utils/skills.ts` (flat keys, scalars + inline arrays only — no
-dependency needed). `verifySkill` checks the structural contract; `founder-os
+dependency needed). `verifySkill` checks the structural contract; `founderos
 verify` and the test suite both run it.
 
 ## The bootstrap layer (`install/`)
 
 The shell scripts (`install.sh` / `install.ps1`) contain no skill logic — they
-ensure a Node runtime exists, then call `founder-os install --from-bootstrap`.
+ensure a Node runtime exists, then call `founderos install --from-bootstrap`.
 
 The real bootstrap pipeline (`cli/src/bootstrap.ts`) and interactive wizard
 (`cli/src/setup-wizard.ts`) live **inside the CLI package**, so they ship
-compiled with `founder-os` and are covered by its build and tests.
+compiled with `founderos` and are covered by its build and tests.
 `install/bootstrap.ts` and `install/setup-wizard.ts` are thin standalone
 entrypoints for local use. `install/validate-env.js` is a zero-dependency
 pre-flight check that works before anything is built.
@@ -90,8 +90,8 @@ pre-flight check that works before anything is built.
 
 - **Monorepo:** pnpm workspaces + Turbo.
 - **CLI build:** `tsc` → `cli/dist/`. The `bin` entry points at `dist/index.js`.
-- **Published package:** `founder-os` ships `dist/` + the `skills/` folder.
-- **CI** runs build, test, lint, and `founder-os verify` on every PR.
+- **Published package:** `founderos` ships `dist/` + the `skills/` folder.
+- **CI** runs build, test, lint, and `founderos verify` on every PR.
 
 ## Why no framework
 

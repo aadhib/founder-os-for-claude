@@ -1,5 +1,5 @@
 /**
- * `founder-os list`
+ * `founderos list`
  *
  * Shows the full skill catalog with install status per skill.
  */
@@ -44,7 +44,7 @@ export async function listCommand(opts: { json?: boolean } = {}): Promise<void> 
     logger.raw();
   }
 
-  logger.info('Add a skill:    founder-os add <skill>');
-  logger.info('Remove a skill: founder-os remove <skill>');
+  logger.info('Add a skill:    founderos add <skill>');
+  logger.info('Remove a skill: founderos remove <skill>');
   logger.raw();
 }

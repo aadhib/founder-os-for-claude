@@ -1,11 +1,11 @@
 {
-  "name": "founder-os",
+  "name": "founderos",
   "version": "1.0.0",
   "description": "The AI operating system for founders — installs Claude Skills + founder workflows in one command.",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "founder-os": "./dist/index.js"
+    "founderos": "./dist/index.js"
   },
   "exports": {
     ".": {

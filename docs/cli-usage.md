@@ -1,10 +1,10 @@
 # CLI Usage
 
-The `founder-os` CLI manages skills across your AI tools. Every command is
+The `founderos` CLI manages skills across your AI tools. Every command is
 listed below with its flags and a real example.
 
 ```
-founder-os <command> [options]
+founderos <command> [options]
 ```
 
 Global flags: `-v, --version`, `-h, --help`.
@@ -25,10 +25,10 @@ Install skills into your AI tools.
 | `--verbose` | Print every path decision. |
 
 ```bash
-founder-os install                       # interactive wizard
-founder-os install --yes                 # install everything
-founder-os install --dry-run             # preview — writes nothing
-founder-os install --only fix-my-ui,founder-mode
+founderos install                       # interactive wizard
+founderos install --yes                 # install everything
+founderos install --dry-run             # preview — writes nothing
+founderos install --only fix-my-ui,founder-mode
 ```
 
 Every write is path-validated, refuses system directories, and never follows
@@ -49,10 +49,10 @@ path before deleting, and never requires elevation.
 | `--restore` | Restore the pre-install backup after removing each skill. |
 
 ```bash
-founder-os uninstall                 # remove everything
-founder-os uninstall --dry-run       # preview
-founder-os uninstall --restore       # remove, then restore backups
-founder-os uninstall --skill fix-my-ui
+founderos uninstall                 # remove everything
+founderos uninstall --dry-run       # preview
+founderos uninstall --restore       # remove, then restore backups
+founderos uninstall --skill fix-my-ui
 ```
 
 ---
@@ -66,8 +66,8 @@ Health check: environment, detected tools, install manifest, and drift.
 | `--security` | Run the security audit instead — path safety, symlink checks, manifest integrity, skill-content check. |
 
 ```bash
-founder-os doctor
-founder-os doctor --security
+founderos doctor
+founderos doctor --security
 ```
 
 Exits non-zero if the environment (or, with `--security`, the security audit)
@@ -84,8 +84,8 @@ List the full skill catalog and install status.
 | `--json` | Machine-readable output. |
 
 ```bash
-founder-os list
-founder-os list --json | jq '.[] | select(.installed)'
+founderos list
+founderos list --json | jq '.[] | select(.installed)'
 ```
 
 ---
@@ -102,9 +102,9 @@ Install a single skill.
 | `--verbose` | Print every path decision. |
 
 ```bash
-founder-os add startup-roast
-founder-os add fix-my-ui --tool cursor
-founder-os add fix-my-ui --dry-run
+founderos add startup-roast
+founderos add fix-my-ui --tool cursor
+founderos add fix-my-ui --dry-run
 ```
 
 ---
@@ -118,8 +118,8 @@ Remove a single skill from your tools and the manifest.
 | `-t, --tool <tools>` | Comma-separated tool ids (defaults to all). |
 
 ```bash
-founder-os remove viral-carousel
-founder-os remove fix-my-ui --tool claude-code
+founderos remove viral-carousel
+founderos remove fix-my-ui --tool claude-code
 ```
 
 ---
@@ -130,7 +130,7 @@ Re-sync installed skills with the latest bundled catalog. Only re-places skills
 whose version changed or whose files went missing.
 
 ```bash
-founder-os update
+founderos update
 ```
 
 ---
@@ -146,7 +146,7 @@ Scaffold Founder OS into the current project (skills committed alongside the rep
 
 ```bash
 cd your-project
-founder-os init
+founderos init
 ```
 
 Writes `.founderos.json` and `FOUNDER_OS.md`. Commit both.
@@ -163,8 +163,8 @@ frontmatter + required `SKILL.md` sections). Used in CI.
 | `--security` | Also run the catalog security audit — confirms skills are plain documentation only (no executables, no symlinks, no binary content). |
 
 ```bash
-founder-os verify
-founder-os verify --security
+founderos verify
+founderos verify --security
 ```
 
 ---
@@ -174,8 +174,8 @@ founder-os verify --security
 Browse the bundled example library.
 
 ```bash
-founder-os examples            # list all
-founder-os examples fix-my-ui  # one skill
+founderos examples            # list all
+founderos examples fix-my-ui  # one skill
 ```
 
 ---
@@ -185,13 +185,13 @@ founder-os examples fix-my-ui  # one skill
 Show supported AI tools, detection status, and where skills are placed.
 
 ```bash
-founder-os integrations
+founderos integrations
 ```
 
 ---
 
 ## Tips
 
-- Run `founder-os doctor` after any change — it's the fastest way to confirm state.
+- Run `founderos doctor` after any change — it's the fastest way to confirm state.
 - Use `--tool` to keep work and personal tool setups separate.
-- `founder-os list --json` is the integration point for scripts and dashboards.
+- `founderos list --json` is the integration point for scripts and dashboards.

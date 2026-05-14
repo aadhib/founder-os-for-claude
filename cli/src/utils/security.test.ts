@@ -3,7 +3,7 @@
  *
  * Confirms the bundled skill catalog is safe to ship and install: plain
  * documentation only, no executables, no symlinks, no binary payloads. This is
- * the same audit `founder-os verify --security` runs in CI.
+ * the same audit `founderos verify --security` runs in CI.
  */
 
 import { test } from 'node:test';

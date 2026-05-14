@@ -74,16 +74,16 @@ Turn operating work into distribution.
 Commit skills to your repo so the whole team shares them:
 
 ```bash
-founder-os init        # writes .founderos.json + places skills in the project
+founderos init        # writes .founderos.json + places skills in the project
 git add .founderos.json FOUNDER_OS.md .claude/skills
 git commit -m "chore: add Founder OS skills"
 ```
 
-Teammates run `npx founder-os init` after cloning — same skills, same versions,
-no global install required. Run `founder-os update` to pull catalog updates.
+Teammates run `npx founderos init` after cloning — same skills, same versions,
+no global install required. Run `founderos update` to pull catalog updates.
 
 ## Automating with `--json`
 
-`founder-os list --json` is a stable integration point — wire it into a
+`founderos list --json` is a stable integration point — wire it into a
 dashboard, a pre-commit check, or an onboarding script that confirms new hires
 have the skills installed.

@@ -8,7 +8,7 @@
  * the allowed area.
  *
  * Allowed write area = inside the user's home directory OR inside the current
- * working directory (for `founder-os init`). Nothing else, ever.
+ * working directory (for `founderos init`). Nothing else, ever.
  */
 
 import fs from 'node:fs';
@@ -100,7 +100,7 @@ function realDir(dir: string): string {
 }
 
 export interface SafePathOptions {
-  /** Also allow paths inside this directory (used by `founder-os init`). */
+  /** Also allow paths inside this directory (used by `founderos init`). */
   allowCwd?: string;
 }
 

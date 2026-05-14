@@ -1,7 +1,7 @@
 /**
  * Founder OS — bootstrap pipeline
  *
- * The programmatic install pipeline, shared by `founder-os install
+ * The programmatic install pipeline, shared by `founderos install
  * --from-bootstrap` and the standalone `install/bootstrap.ts` entrypoint.
  * Keeps "what order do things happen in" in exactly one place.
  *

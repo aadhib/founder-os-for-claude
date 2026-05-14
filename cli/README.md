@@ -1,4 +1,4 @@
-# `founder-os` CLI
+# `founderos` CLI
 
 The TypeScript CLI that powers Founder OS. Detects your AI tools, places
 skills in the right directories, and keeps everything in sync.
@@ -6,23 +6,23 @@ skills in the right directories, and keeps everything in sync.
 ## Install
 
 ```bash
-npx founder-os install
+npx founderos install
 ```
 
 ## Commands
 
 | Command | Description |
 |---|---|
-| `founder-os install` | Interactive setup wizard (or `--yes` for non-interactive) |
-| `founder-os doctor` | Environment + manifest health check |
-| `founder-os list` | List all skills and install status (`--json` supported) |
-| `founder-os update` | Re-sync installed skills with the latest catalog |
-| `founder-os init` | Scaffold Founder OS into the current project |
-| `founder-os add <skill>` | Install a single skill |
-| `founder-os remove <skill>` | Remove a single skill |
-| `founder-os verify` | Validate the skill catalog (used in CI) |
-| `founder-os examples [skill]` | Browse the bundled example library |
-| `founder-os integrations` | Show supported tools and detection status |
+| `founderos install` | Interactive setup wizard (or `--yes` for non-interactive) |
+| `founderos doctor` | Environment + manifest health check |
+| `founderos list` | List all skills and install status (`--json` supported) |
+| `founderos update` | Re-sync installed skills with the latest catalog |
+| `founderos init` | Scaffold Founder OS into the current project |
+| `founderos add <skill>` | Install a single skill |
+| `founderos remove <skill>` | Remove a single skill |
+| `founderos verify` | Validate the skill catalog (used in CI) |
+| `founderos examples [skill]` | Browse the bundled example library |
+| `founderos integrations` | Show supported tools and detection status |
 
 ## Architecture
 
@@ -43,7 +43,7 @@ where, so `update` and `remove` are precise rather than best-effort.
 
 ```bash
 pnpm install
-pnpm --filter founder-os build
-pnpm --filter founder-os test
+pnpm --filter founderos build
+pnpm --filter founderos test
 node cli/dist/index.js doctor
 ```

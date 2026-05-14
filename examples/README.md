@@ -17,6 +17,6 @@ actual run: the input, and the output the skill produced.
 Browse from the CLI:
 
 ```bash
-founder-os examples            # list all
-founder-os examples fix-my-ui  # one skill
+founderos examples            # list all
+founderos examples fix-my-ui  # one skill
 ```

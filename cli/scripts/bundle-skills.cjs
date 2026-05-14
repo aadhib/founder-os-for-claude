@@ -3,7 +3,7 @@
  * Founder OS CLI — bundle skills
  *
  * Runs on `prepack`. Copies the monorepo `skills/` directory into the CLI
- * package so the published `founder-os` package is self-contained.
+ * package so the published `founderos` package is self-contained.
  *
  * At runtime, `utils/paths.ts` looks for `<package>/skills` first (the
  * published layout) and falls back to `<repo>/skills` (the dev layout).

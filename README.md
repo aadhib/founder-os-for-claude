@@ -49,9 +49,9 @@ Most "prompt packs" are a folder of `.txt` files. Founder OS is different:
 **Recommended — the npm path (no shell piping, fully transparent):**
 
 ```bash
-npx founder-os install          # npm
-pnpm dlx founder-os install     # pnpm
-bunx founder-os install         # bun
+npx founderos install          # npm
+pnpm dlx founderos install     # pnpm
+bunx founderos install         # bun
 ```
 
 **Shell one-liners (macOS / Linux / Windows):**
@@ -75,7 +75,7 @@ irm https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/
 5. 📦 Installs skills into the correct per-tool directories — **backing up anything it would overwrite**.
 6. 🩺 Runs `doctor` and prints your next steps.
 
-It writes no files itself, uses no temp directories, opens no network connections beyond the npm registry, and contains no `postinstall` script. The shell scripts are thin — they only check Node and hand off to the `founder-os` npm package.
+It writes no files itself, uses no temp directories, opens no network connections beyond the npm registry, and contains no `postinstall` script. The shell scripts are thin — they only check Node and hand off to the `founderos` npm package.
 
 ### Manual verification (for the cautious — recommended)
 
@@ -84,14 +84,14 @@ It writes no files itself, uses no temp directories, opens no network connection
 curl -fsSL https://raw.githubusercontent.com/aadhib/founder-os-for-claude/main/install/install.sh
 
 # 2. Or skip shells entirely and preview every change first
-npx founder-os install --dry-run    # shows exactly what would be written, writes nothing
+npx founderos install --dry-run    # shows exactly what would be written, writes nothing
 
 # 3. After install, audit it
-founder-os doctor --security        # path safety, symlink checks, manifest integrity
-founder-os verify --security        # confirms skills are plain documentation only
+founderos doctor --security        # path safety, symlink checks, manifest integrity
+founderos verify --security        # confirms skills are plain documentation only
 ```
 
-The `founder-os` package is published to npm with **build provenance** — npm can attest the tarball was built by this repo's release workflow. See [SECURITY.md](SECURITY.md) for the full supply-chain story.
+The `founderos` package is published to npm with **build provenance** — npm can attest the tarball was built by this repo's release workflow. See [SECURITY.md](SECURITY.md) for the full supply-chain story.
 
 <img src="screenshots/install-flow.svg" alt="Install flow" width="820" />
 
@@ -118,25 +118,25 @@ Each skill ships with a complete `SKILL.md`: purpose, ideal user, input requirem
 
 ```bash
 # 1. Install everything
-npx founder-os install
+npx founderos install
 
 # 2. Confirm your environment is healthy
-founder-os doctor
+founderos doctor
 
 # 3. See what's installed
-founder-os list
+founderos list
 
 # 4. Add or remove individual skills
-founder-os add fix-my-ui
-founder-os remove startup-roast
+founderos add fix-my-ui
+founderos remove startup-roast
 
 # 5. Browse real example outputs
-founder-os examples
+founderos examples
 
 # 6. Preview, audit, and cleanly uninstall
-founder-os install --dry-run     # see every change before applying
-founder-os doctor --security     # run the security audit
-founder-os uninstall             # remove everything (with optional --restore)
+founderos install --dry-run     # see every change before applying
+founderos doctor --security     # run the security audit
+founderos uninstall             # remove everything (with optional --restore)
 ```
 
 Then, inside Claude Code or Cursor:
@@ -160,7 +160,7 @@ founder-os-for-claude/
 │       ├── commands/     install · doctor · list · add · remove · verify · ...
 │       ├── installers/   per-tool skill placement
 │       ├── integrations/ Claude Code · Cursor · Codex · Gemini detection
-│       ├── templates/    scaffolding for `founder-os init`
+│       ├── templates/    scaffolding for `founderos init`
 │       └── utils/        logging, fs, env detection
 ├── install/              install.sh · install.ps1 · validate-env.js · bootstrap.ts
 ├── skills/               8 enterprise-grade Claude Skills
@@ -196,7 +196,7 @@ founder-os-for-claude/
 | Structured workflow engines | ❌ | ❌ | ✅ |
 | Output schemas + quality gates | ❌ | ❌ | ✅ |
 | Environment doctor | ❌ | ❌ | ✅ |
-| Versioned + updatable | ❌ | ⚠️ | ✅ `founder-os update` |
+| Versioned + updatable | ❌ | ⚠️ | ✅ `founderos update` |
 | Real example library | ⚠️ | ❌ | ✅ |
 
 ---
@@ -236,9 +236,9 @@ Founder OS is built to be safe to run on day one of an open-source release.
 - **No elevation, ever.** Installers refuse to run as root / Administrator and only write inside your home directory.
 - **Path-validated writes.** Every filesystem write is checked against an allow-list — system directories, filesystem roots, and the home root itself are hard-refused, and symlinked targets are never followed.
 - **Backups before overwrite.** `--force` copies the existing folder to `<dir>.founderos-backup-<timestamp>` before replacing it.
-- **No install-time code execution.** The npm package has no `postinstall` hook. The only executable is the `founder-os` CLI bin.
-- **Dry-run everything.** `founder-os install --dry-run` shows every planned change and writes nothing.
-- **Built-in audits.** `founder-os doctor --security` and `founder-os verify --security` check path safety, symlinks, manifest integrity, and confirm skills are plain documentation.
+- **No install-time code execution.** The npm package has no `postinstall` hook. The only executable is the `founderos` CLI bin.
+- **Dry-run everything.** `founderos install --dry-run` shows every planned change and writes nothing.
+- **Built-in audits.** `founderos doctor --security` and `founderos verify --security` check path safety, symlinks, manifest integrity, and confirm skills are plain documentation.
 - **Hardened CI/CD.** Least-privilege workflow permissions, pinned action versions, `pnpm audit` + dependency review gates, npm publish only on maintainer-pushed tags, with build provenance.
 
 Full details, dependency policy, and how to report a vulnerability → [SECURITY.md](SECURITY.md).
@@ -249,7 +249,7 @@ Full details, dependency policy, and how to report a vulnerability → [SECURITY
 
 - [x] 8 launch skills
 - [x] Cross-platform CLI
-- [ ] `founder-os studio` — local web UI
+- [ ] `founderos studio` — local web UI
 - [ ] Skill marketplace + community registry
 - [ ] Team workspaces & shared skill configs
 - [ ] Eval harness for skill output quality

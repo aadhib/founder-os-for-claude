@@ -33,7 +33,7 @@ export interface InstallOptions {
   dryRun?: boolean;
   /** Print every path decision. */
   verbose?: boolean;
-  /** Extra allowed write root (used by `founder-os init` for project installs). */
+  /** Extra allowed write root (used by `founderos init` for project installs). */
   allowCwd?: string;
 }
 
@@ -198,7 +198,7 @@ export async function installAllSkills(
   };
 }
 
-/** Install one skill across the given tools — used by `founder-os add`. */
+/** Install one skill across the given tools — used by `founderos add`. */
 export async function installSkill(
   skillId: string,
   integrations: Integration[],

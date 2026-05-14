@@ -1,5 +1,5 @@
 /**
- * `founder-os uninstall`
+ * `founderos uninstall`
  *
  * Cleanly removes skills the CLI installed. Never requires elevation, never
  * touches anything outside the manifest, re-validates every path before

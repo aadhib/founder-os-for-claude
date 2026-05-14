@@ -1,5 +1,5 @@
 /**
- * `founder-os update`
+ * `founderos update`
  *
  * Re-syncs installed skills with the bundled catalog. Compares manifest
  * versions against the catalog and re-places anything that's out of date or
@@ -25,7 +25,7 @@ export async function updateCommand(): Promise<void> {
   ]);
 
   if (manifest.entries.length === 0) {
-    logger.warn('Nothing installed yet. Run `founder-os install` first.');
+    logger.warn('Nothing installed yet. Run `founderos install` first.');
     return;
   }
 

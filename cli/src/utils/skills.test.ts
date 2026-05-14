@@ -2,7 +2,7 @@
  * Founder OS — skill catalog tests
  *
  * Runs against the real bundled skills/ directory. These are the same checks
- * `founder-os verify` performs, wired into `node --test` for CI.
+ * `founderos verify` performs, wired into `node --test` for CI.
  */
 
 import { test } from 'node:test';

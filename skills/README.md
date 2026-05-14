@@ -22,13 +22,13 @@ Purpose · Use Cases · Ideal User · Input Requirements · Operating Principles
 · Anti-Patterns · Advanced Mode · Best Practices · Integration Compatibility
 ```
 
-Run `founder-os verify` to validate the whole catalog against this contract.
+Run `founderos verify` to validate the whole catalog against this contract.
 
 ## Installing
 
 ```bash
-npx founder-os install            # all skills, all detected tools
-npx founder-os add fix-my-ui      # one skill
+npx founderos install            # all skills, all detected tools
+npx founderos add fix-my-ui      # one skill
 ```
 
 Skills are plain Markdown — read them before enabling. They contain no
